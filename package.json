@@ -1,7 +1,6 @@
 {
   "name": "ftn",
   "description": "A Vue.js project",
-  "version": "1.0.0",
   "author": "Rafael Raupp <raupperino@gmail.com>",
   "license": "MIT",
   "private": true,

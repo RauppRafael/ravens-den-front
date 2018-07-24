@@ -1,17 +1,17 @@
 <template>
-	<div class="matchmaking">
-    <app-filter></app-filter>
-  </div>
+    <div class="matchmaking">
+        <app-filter></app-filter>
+    </div>
 </template>
 
 <script>
-  import AppFilter from './components/Filter'
+    import AppFilter from './components/Filter'
 
-	export default {
-		components: {
-		  AppFilter
+    export default {
+        components: {
+            AppFilter
+        }
     }
-	}
 </script>
 
 <style scoped>
