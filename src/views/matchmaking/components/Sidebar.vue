@@ -2,14 +2,14 @@
     <div class="sidebar">
         <ul>
             <li>
-                <h4>Sort By</h4>
+                <h6>Sort By</h6>
                 <vue-multiselect :options="configs.sortBy.options"
                                  :allow-empty="false"
                                  v-model="filters.sortBy"></vue-multiselect>
             </li>
 
             <li>
-                <h4>Servers</h4>
+                <h6>Servers</h6>
                 <vue-multiselect :options="configs.servers.options"
                                  :multiple="true"
                                  :custom-label="configs.servers.label"
@@ -18,7 +18,7 @@
             </li>
 
             <li>
-                <h4>Date</h4>
+                <h6>Date</h6>
                 <vue-date-range i18n="EN"
                                 format="MMM/DD/YY"
                                 :captions="configs.dateRange.captions"
@@ -26,7 +26,7 @@
             </li>
 
             <li>
-                <h4>Buy In</h4>
+                <h6>Buy In</h6>
                 <vue-multiselect :options="configs.buyIn.options"
                                  :multiple="true"
                                  v-model="filters.buyIn"
@@ -34,7 +34,7 @@
             </li>
 
             <li>
-                <h4>Registered Players</h4>
+                <h6>Registered Players</h6>
                 <vue-multiselect :options="configs.players.options"
                                  v-model="filters.players"></vue-multiselect>
             </li>
@@ -152,7 +152,7 @@
             margin-bottom: 2rem;
             color: $white;
 
-            h4 {
+            h6 {
                 text-shadow: 1px 1px 1px $darker-grey;
             }
         }

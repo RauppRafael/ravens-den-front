@@ -3,23 +3,19 @@
         <app-matchmaking-sidebar></app-matchmaking-sidebar>
 
         <div class="container">
-            <!--<app-match v-for="n in 7"></app-match>-->
-            <app-match></app-match>
-            <app-match-2></app-match-2>
+            <app-match v-for="n in 10"></app-match>
         </div>
     </div>
 </template>
 
 <script>
     import AppMatchmakingSidebar from './components/Sidebar'
-    import AppMatch from './components/Match'
-    import AppMatch2 from './components/Match2'
+    import AppMatch from './components/Match2'
 
     export default {
         components: {
             AppMatchmakingSidebar,
             AppMatch,
-            AppMatch2,
         }
     }
 </script>
@@ -35,8 +31,9 @@
 
         .container {
             height: $sidebar-height;
+            width: 100%;
             overflow-y: scroll;
-            padding: 2rem 4rem;
+            padding: 4rem 8rem;
             z-index: $z-index-container;
             position: relative;
         }

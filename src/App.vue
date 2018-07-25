@@ -2,8 +2,6 @@
     <div id="app">
         <app-header></app-header>
 
-        <app-matchmaking></app-matchmaking>
-
         <router-view></router-view>
     </div>
 </template>
@@ -23,6 +21,7 @@
 
 <style lang="scss">
     @import "~@scss/reset.scss";
-    @import "~@scss/fonts.scss";
+    @import "~@scss/typography.scss";
     @import "~@scss/fixes.scss";
+    @import "~@scss/utilities.scss";
 </style>

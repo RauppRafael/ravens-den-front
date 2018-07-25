@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <h1>Fortnite</h1>
+        <h3>Fortnite</h3>
         <router-link to="/matchmaking" class="active">Matchmaking</router-link>
         <router-link to="#">History</router-link>
         <router-link to="#">Jobs</router-link>
