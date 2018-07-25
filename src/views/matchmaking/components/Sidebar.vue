@@ -138,6 +138,7 @@
     @import "~@animations";
 
     .filters {
+        flex-shrink: 0;
         background-color: $light-blue;
         width: 35rem;
         height: $sidebar-height;
