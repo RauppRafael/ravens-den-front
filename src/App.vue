@@ -23,24 +23,5 @@
 <style lang="scss">
     @import "~@scss/reset.scss";
     @import "~@scss/fonts.scss";
-
-    .calendar {
-        height: auto !important;
-    }
-
-    .sidebar-enter {
-        /*transform: translateX(-40rem);*/
-        opacity: 0;
-
-        &-to {
-            /*transition: transform 2s;*/
-            transition: opacity 2s;
-        }
-    }
-
-    .sidebar-leave {
-        &-active {
-        }
-    }
-
+    @import "~@scss/fixes.scss";
 </style>

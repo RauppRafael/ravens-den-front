@@ -1,3 +1,5 @@
+@import "./colors";
+
 @font-face {
     font-family: BurbankBigCondensedBlack;
     src: url("/src/assets/BurbankBigCondensed-Black.otf") format("opentype");
@@ -13,6 +15,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
+    color: $dark-grey;
 }
 
 h1, h2, h3, h4, h5, h6 {

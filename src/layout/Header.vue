@@ -28,7 +28,7 @@
         height: $header-height;
         padding: 0 0 0 1.5rem;
 
-        background-color: $dark-grey;
+        background-color: $darker-grey;
         color: $white;
         box-shadow: $shadow;
 

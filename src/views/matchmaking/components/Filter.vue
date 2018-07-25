@@ -148,6 +148,10 @@
         li {
             margin-bottom: 2rem;
             color: $white;
+
+            h4 {
+                text-shadow: 1px 1px 1px $darker-grey;
+            }
         }
     }
 </style>
