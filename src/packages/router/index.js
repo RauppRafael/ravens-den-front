@@ -3,14 +3,15 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-// import Component from 'components/Component.vue'
+import Matchmaking from '@views/matchmaking/Matchmaking'
 
 const router = new VueRouter({
 
         mode: 'history',
 
         routes: [
-            // {path: '/component', component: Component},
+            {path: '/matchmaking', component: Matchmaking},
+            {path: '*', redirect: '/matchmaking'},
         ]
 
     }

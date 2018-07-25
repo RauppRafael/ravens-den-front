@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <h1>Fortnite</h1>
-        <router-link to="#" class="active">Matchmaking</router-link>
+        <router-link to="/matchmaking" class="active">Matchmaking</router-link>
         <router-link to="#">History</router-link>
         <router-link to="#">Jobs</router-link>
         <router-link to="#">
@@ -23,6 +23,8 @@
         display: flex;
         align-items: stretch;
         justify-content: space-between;
+        position:relative;
+        z-index: $z-index-header;
 
         width: 100vw;
         height: $header-height;

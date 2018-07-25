@@ -1,9 +1,10 @@
 <template>
     <div id="app">
         <app-header></app-header>
-        <transition name="sidebar">
-            <app-matchmaking></app-matchmaking>
-        </transition>
+
+        <app-matchmaking></app-matchmaking>
+
+        <router-view></router-view>
     </div>
 </template>
 

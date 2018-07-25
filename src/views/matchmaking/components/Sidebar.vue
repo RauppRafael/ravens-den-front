@@ -1,5 +1,5 @@
 <template>
-    <div class="filters">
+    <div class="sidebar">
         <ul>
             <li>
                 <h4>Sort By</h4>
@@ -137,7 +137,9 @@
     @import "~@variables";
     @import "~@animations";
 
-    .filters {
+    .sidebar {
+        position: relative;
+        z-index: $z-index-sidebar;
         flex-shrink: 0;
         background-color: $light-blue;
         width: 35rem;
