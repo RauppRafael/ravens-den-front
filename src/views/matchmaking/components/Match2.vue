@@ -1,24 +1,50 @@
 <template>
-    <div class="match">
+    <div class="match flex-col">
         <div class="content">
-            <div class="date-time">
+            <div class="date-time flex-col flex-center">
                 <h4 class="date">TODAY</h4>
                 <h3 class="time">08:00</h3>
             </div>
 
             <div>
-                <h5>Signed Players</h5>
-                <h4 style="text-align: right">83/100</h4>
+                <h5>Players</h5>
+                <div class="flex-center">
+                    <div>
+                        <h6 class="text-right">Current</h6>
+                        <h4>83</h4>
+                    </div>
+                    <h3 class="bar">/</h3>
+                    <div>
+                        <h6>Max</h6>
+                        <h4>100</h4>
+                    </div>
+                </div>
             </div>
 
             <div>
-                <h5>Buy In</h5>
-                <h4 style="text-align: right">$0.10</h4>
+                <h5>Entry</h5>
+
+                <div class="flex-center">
+                    <div>
+                        <h6 class="text-right">&nbsp;</h6>
+                        <h4 class="text-right">$0.10</h4>
+                    </div>
+                </div>
             </div>
 
             <div>
-                <h5>Current/Max Prize</h5>
-                <h4 style="text-align: right">$8.30/$10.00</h4>
+                <h5>Prize</h5>
+                <div class="flex-center">
+                    <div>
+                        <h6 class="text-right">Current</h6>
+                        <h4>$8.30</h4>
+                    </div>
+                    <h3 class="bar">/</h3>
+                    <div>
+                        <h6>Max</h6>
+                        <h4>$10.00</h4>
+                    </div>
+                </div>
             </div>
 
             <div class="buttons">
@@ -83,18 +109,21 @@
 
         .content {
             @include vertical-center;
+
             > * {
                 @include rotate-inverse;
+                margin: .5rem 1rem;
             }
 
             justify-content: space-between;
-        }
 
-        .date-time {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 10rem;
+            .date-time {
+                width: 10rem;
+            }
+
+            .bar {
+                margin: 0 .8rem;
+            }
         }
 
         &:not(:last-child) {
@@ -109,7 +138,7 @@
         }
 
         to {
-            transform: translateX(0) rotate(-1deg) skew(-15deg) ;
+            transform: translateX(0) rotate(-1deg) skew(-15deg);
             opacity: 1;
 
         }
