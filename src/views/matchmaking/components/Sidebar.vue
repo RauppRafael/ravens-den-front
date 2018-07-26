@@ -139,20 +139,7 @@
     @import "~@mixins";
 
     .sidebar {
-        position: relative;
-        z-index: $z-index-sidebar;
-        flex-shrink: 0;
-        background-color: $light-blue;
-        width: 35rem;
-        height: $sidebar-height;
-        padding: 2rem 2.5rem;
-        animation: sidebar-slide-in .6s ease-out;
-        box-shadow: $shadow;
-
         li {
-            margin-bottom: 2rem;
-            color: $white;
-
             > *:first-child {
                 @include text-shadow;
                 margin-bottom: .5rem;

@@ -27,3 +27,10 @@
         height: auto !important;
     }
 }
+
+i {
+    &.fa {
+        display: flex;
+        align-items: center;
+    }
+}

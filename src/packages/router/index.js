@@ -1,19 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Matchmaking from '@views/matchmaking/Matchmaking'
+import Profile from '@views/profile/Profile'
 
 Vue.use(VueRouter)
-
-import Matchmaking from '@views/matchmaking/Matchmaking'
 
 const router = new VueRouter({
 
         mode: 'history',
 
-        routes: [
-            {path: '/matchmaking', component: Matchmaking},
-            {path: '*', redirect: '/matchmaking'},
-        ]
+        linkActiveClass: 'active',
 
+        routes: [
+            {
+                path: '/matchmaking',
+                component: Matchmaking,
+            },
+            {
+                path: '/profile',
+                component: Profile,
+                children: [
+                    {
+                        path: 'withdraw',
+                        component: Profile,
+                    },
+                    {
+                        path: 'deposit',
+                        component: Profile,
+                    },
+                    {
+                        path: 'settings',
+                        component: Profile,
+                    },
+                ],
+            },
+            {
+                path: '*',
+                redirect: '/matchmaking',
+            },
+        ]
     }
 )
 

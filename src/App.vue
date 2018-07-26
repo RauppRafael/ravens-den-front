@@ -24,4 +24,7 @@
     @import "~@scss/typography.scss";
     @import "~@scss/fixes.scss";
     @import "~@scss/utilities.scss";
+    @import "~@animations";
+    @import "~@variables";
+    @import "~@scss/components.scss";
 </style>
