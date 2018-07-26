@@ -4,7 +4,6 @@
         position: relative;
         width: 100% !important;
         padding: .8rem 1.3rem !important;
-        border-radius: .5rem !important;
 
         font-family: 'Open Sans', sans-serif;
         text-transform: uppercase;
@@ -26,6 +25,11 @@
     .calendar {
         height: auto !important;
     }
+}
+
+.multiselect__tags, .input-date {
+    border-radius: .1rem !important;
+    border: 1px solid $grey !important;
 }
 
 i {

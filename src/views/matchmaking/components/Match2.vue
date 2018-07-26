@@ -105,7 +105,7 @@
         box-shadow: $shadow;
         height: 15rem;
         padding: 1.8rem 5%;
-        animation: fade-in 1s ease-out;
+        animation: fade-in .8s ease-out;
 
         .content {
             @include vertical-center;

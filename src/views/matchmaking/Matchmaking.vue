@@ -3,7 +3,10 @@
         <app-matchmaking-sidebar></app-matchmaking-sidebar>
 
         <div class="container">
-            <app-match v-for="n in 10"></app-match>
+            <app-match></app-match>
+            <app-match></app-match>
+            <app-match></app-match>
+            <app-match></app-match>
         </div>
     </div>
 </template>
@@ -33,6 +36,7 @@
             height: $sidebar-height;
             width: 100%;
             overflow-y: scroll;
+            overflow-x: hidden;
             padding: 4rem 8rem;
             z-index: $z-index-container;
             position: relative;
