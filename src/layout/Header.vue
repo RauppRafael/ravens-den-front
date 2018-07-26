@@ -3,33 +3,13 @@
         <h3>Fortnite</h3>
 
         <div class="links">
-            <router-link to="/matchmaking"
-                         class="link"
-                         :active="hover === 'matchmaking'"
-                         @mouseover="enter('matchmaking')"
-                         @mouse-leave="leave('matchmaking')">Matchmaking
-            </router-link>
+            <router-link to="/matchmaking" class="link">Matchmaking</router-link>
 
-            <router-link to="/history"
-                         class="link"
-                         :active="hover === 'matchmaking'"
-                         @mouse-enter="enter('history')"
-                         @mouse-leave="leave('history')">History
-            </router-link>
+            <router-link to="/history" class="link">History</router-link>
 
-            <router-link to="jobs"
-                         class="link"
-                         :active="hover === 'matchmaking'"
-                         @mouse-enter="enter('jobs')"
-                         @mouse-leave="leave('jobs')">Jobs
-            </router-link>
+            <router-link to="jobs" class="link">Jobs</router-link>
 
-            <router-link to="/profile"
-                         class="link"
-                         :active="hover === 'matchmaking'"
-                         @mouseover="enter('profile')"
-                         @mouseleave="leave('profile')">
-
+            <router-link to="/profile" class="link">
                 <vue-dropdown text="WRX Raupp | $ 172,95">
                     <vue-dropdown-item to="/profile">Profile</vue-dropdown-item>
                     <vue-dropdown-item to="/profile/deposit">Deposit</vue-dropdown-item>
@@ -37,43 +17,21 @@
                     <vue-dropdown-item to="/profile/settings">Settings</vue-dropdown-item>
                 </vue-dropdown>
             </router-link>
-
         </div>
 
-        <router-link to="#" class="yellow">Something</router-link>
+        <router-link to="#" class="yellow">Download</router-link>
     </header>
 </template>
 
 <script>
     import VueDropdown from 'bootstrap-vue/es/components/dropdown/dropdown'
     import VueDropdownItem from 'bootstrap-vue/es/components/dropdown/dropdown-item'
-    // import
 
     export default {
         components: {
-            // AppHeaderDropdown,
             VueDropdown,
             VueDropdownItem,
         },
-
-        data() {
-            return {
-                hover: null
-            }
-        },
-
-        methods: {
-            enter(tab) {
-                console.log(' text')
-                this.hover = tab
-            },
-
-            leave(tab) {
-                if (this.hover === tab)
-                    this.hover = null
-                // this.$refs[tab].classList.remove('active');
-            }
-        }
     }
 </script>
 
@@ -118,13 +76,11 @@
         .link {
             font-size: 1.4rem;
             color: $light-grey;
+            transition: all .2s ease-in-out;
+            border: none;
 
-            &.active {
+            &.active, &:hover {
                 border-bottom: 5px solid $yellow;
-            }
-
-            :hover {
-                @extend .active;
             }
         }
 

@@ -1,5 +1,6 @@
 <template>
-    <div class="match flex-col">
+    <div class="match flex-col" :style="{'animation-delay': dataAnimationDelay}">
+
         <div class="content">
             <div class="date-time flex-col flex-center">
                 <h4 class="date">TODAY</h4>
@@ -13,7 +14,7 @@
                         <h6 class="text-right">Current</h6>
                         <h4>83</h4>
                     </div>
-                    <h3 class="bar">/</h3>
+                    <h3 class="slash">/</h3>
                     <div>
                         <h6>Max</h6>
                         <h4>100</h4>
@@ -39,7 +40,7 @@
                         <h6 class="text-right">Current</h6>
                         <h4>$8.30</h4>
                     </div>
-                    <h3 class="bar">/</h3>
+                    <h3 class="slash">/</h3>
                     <div>
                         <h6>Max</h6>
                         <h4>$10.00</h4>
@@ -52,11 +53,19 @@
                 <button class="btn"><h5>JOIN</h5></button>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+        props: {
+            dataAnimationDelay: {
+                type: String,
+                default: '0s',
+            }
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -71,33 +80,6 @@
         transform: rotate(1deg) skew(15deg);
     }
 
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-
-        > *:first-child {
-            margin-bottom: 1rem;
-        }
-    }
-
-    .btn {
-        @include rotate;
-
-        padding: 1rem 5rem;
-        box-shadow: $shadow;
-        background: $light-blue;
-        color: $white;
-        text-shadow: $shadow;
-        letter-spacing: .1rem;
-
-        > * {
-            @include rotate-inverse;
-            @include text-shadow;
-        }
-    }
-
     .match {
         @include rotate;
 
@@ -105,42 +87,80 @@
         box-shadow: $shadow;
         height: 15rem;
         padding: 1.8rem 5%;
-        animation: fade-in .8s ease-out;
+        animation: fade-in 1s ease-out backwards;
 
-        .content {
-            @include vertical-center;
-
-            > * {
-                @include rotate-inverse;
-                margin: .5rem 1rem;
+        @keyframes fade-in {
+            from {
+                transform: translateX(120rem) rotate(-1deg) skew(-15deg);
+                opacity: .5;
             }
 
-            justify-content: space-between;
+            to {
+                transform: translateX(0) rotate(-1deg) skew(-15deg);
+                opacity: 1;
+            }
+        }
 
-            .date-time {
-                width: 10rem;
+        @keyframes fade-out {
+            from {
+                transform: translateX(0) rotate(-1deg) skew(-15deg);
+                opacity: 1;
             }
 
-            .bar {
-                margin: 0 .8rem;
+            to {
+                transform: translateX(120rem) rotate(-1deg) skew(-15deg);
+                opacity: .5;
             }
         }
 
         &:not(:last-child) {
             margin-bottom: 2.5rem;
         }
-    }
 
-    @keyframes fade-in {
-        from {
-            transform: translateX(70rem) rotate(-1deg) skew(-15deg);
-            opacity: .5;
-        }
+        .content {
+            @include vertical-center;
 
-        to {
-            transform: translateX(0) rotate(-1deg) skew(-15deg);
-            opacity: 1;
+            justify-content: space-between;
 
+            > * {
+                @include rotate-inverse;
+                margin: .5rem 1rem;
+            }
+
+            .date-time {
+                width: 10rem;
+            }
+
+            .slash {
+                margin: 0 .8rem;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+
+                .btn {
+                    @include rotate;
+
+                    padding: 1rem 5rem;
+                    box-shadow: $shadow;
+                    background: $light-blue;
+                    color: $white;
+                    text-shadow: $shadow;
+                    letter-spacing: .1rem;
+
+                    > * {
+                        @include rotate-inverse;
+                        @include text-shadow;
+                    }
+
+                    &:first-child {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
         }
     }
 </style>

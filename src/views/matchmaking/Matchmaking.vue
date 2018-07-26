@@ -3,10 +3,10 @@
         <app-matchmaking-sidebar></app-matchmaking-sidebar>
 
         <div class="container">
-            <app-match></app-match>
-            <app-match></app-match>
-            <app-match></app-match>
-            <app-match></app-match>
+            <app-match data-animation-delay="0s"></app-match>
+            <app-match data-animation-delay=".1s"></app-match>
+            <app-match data-animation-delay=".2s"></app-match>
+            <app-match data-animation-delay=".3s"></app-match>
         </div>
     </div>
 </template>
