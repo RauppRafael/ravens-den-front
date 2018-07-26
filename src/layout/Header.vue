@@ -2,12 +2,9 @@
     <header class="header">
         <h3>Fortnite</h3>
         <router-link to="/matchmaking" class="active">Matchmaking</router-link>
-        <router-link to="#">History</router-link>
+        <router-link to="/history">History</router-link>
         <router-link to="#">Jobs</router-link>
-        <router-link to="#">
-            <!--<i class="fas fa-user"></i> -->
-            Profile
-        </router-link>
+        <router-link to="/profile">Profile</router-link>
         <router-link to="#" class="yellow">Something</router-link>
     </header>
 </template>
@@ -47,6 +44,10 @@
 
             &.active {
                 border-bottom: 5px solid $yellow;
+            }
+
+            :hover {
+                @extend .active;
             }
         }
 

@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+let CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -94,7 +95,26 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
+    devtool: '#eval-source-map',
+    plugins: [
+        // Use provide plugin to load something for the entire app
+        //
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     toastr: 'toastr',
+        //     Chartist: 'chartist',
+        // }),
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: 'src/assets/fonts',
+                    to: 'fonts',
+                    toType: 'dir'
+                }
+            ]
+        )
+    ],
 }
 
 if (process.env.NODE_ENV === 'production') {

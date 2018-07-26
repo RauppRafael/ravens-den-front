@@ -9,3 +9,7 @@
     flex-direction: row;
     align-items: center;
 }
+
+@mixin text-shadow {
+    text-shadow: 1px 1px 1px $darker-grey;
+}

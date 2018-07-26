@@ -43,12 +43,12 @@
 </template>
 
 <script>
-  import VueMultiselect from 'vue-multiselect'
-  import VueDateRange from 'vue-rangedate-picker'
+    import VueMultiselect from 'vue-multiselect'
+    import VueDateRange from 'vue-rangedate-picker'
 
-  import 'vue-multiselect/dist/vue-multiselect.min.css'
+    import 'vue-multiselect/dist/vue-multiselect.min.css'
 
-  export default {
+    export default {
         components: {
             VueMultiselect,
             VueDateRange,
@@ -136,6 +136,7 @@
 <style lang="scss" scoped>
     @import "~@variables";
     @import "~@animations";
+    @import "~@mixins";
 
     .sidebar {
         position: relative;
@@ -153,7 +154,7 @@
             color: $white;
 
             h6 {
-                text-shadow: 1px 1px 1px $darker-grey;
+                @include text-shadow;
             }
         }
     }
