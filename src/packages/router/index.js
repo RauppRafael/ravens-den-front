@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Matchmaking from '@views/matchmaking/Matchmaking'
+
+// Profile
+import ProfileIndex from '@views/profile'
 import Profile from '@views/profile/Profile'
+import Deposit from '@views/profile/Deposit'
+import Withdraw from '@views/profile/Withdraw'
+import Settings from '@views/profile/Settings'
 
 Vue.use(VueRouter)
 
@@ -18,19 +24,23 @@ const router = new VueRouter({
             },
             {
                 path: '/profile',
-                component: Profile,
+                component: ProfileIndex,
                 children: [
                     {
-                        path: 'withdraw',
+                        path: '/',
                         component: Profile,
+                    },
+                    {
+                        path: 'withdraw',
+                        component: Withdraw,
                     },
                     {
                         path: 'deposit',
-                        component: Profile,
+                        component: Deposit,
                     },
                     {
                         path: 'settings',
-                        component: Profile,
+                        component: Settings,
                     },
                 ],
             },

@@ -2,7 +2,7 @@
     <div class="matchmaking">
         <app-matchmaking-sidebar></app-matchmaking-sidebar>
 
-        <div class="container">
+        <div class="matches">
             <app-match data-animation-delay="0s"></app-match>
             <app-match data-animation-delay=".1s"></app-match>
             <app-match data-animation-delay=".2s"></app-match>
@@ -31,15 +31,5 @@
         align-items: flex-start;
         justify-content: space-between;
         background-color: lighten($light-grey, 70%);
-
-        .container {
-            height: $sidebar-height;
-            width: 100%;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            padding: 4rem 8rem;
-            z-index: $z-index-container;
-            position: relative;
-        }
     }
 </style>

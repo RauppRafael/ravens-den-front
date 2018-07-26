@@ -2,7 +2,9 @@
     <div id="app">
         <app-header></app-header>
 
-        <router-view></router-view>
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -27,4 +29,20 @@
     @import "~@animations";
     @import "~@variables";
     @import "~@scss/components.scss";
+
+    .container {
+        > * {
+            display: flex;
+
+            > *:last-child {
+                position: relative;
+                padding: 4rem 8rem;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: $sidebar-height;
+                width: 100%;
+                z-index: $z-index-container;
+            }
+        }
+    }
 </style>
