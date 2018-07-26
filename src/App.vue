@@ -31,6 +31,8 @@
     @import "~@scss/components.scss";
 
     .container {
+        background-color: $lighter-grey;
+
         > * {
             display: flex;
 
