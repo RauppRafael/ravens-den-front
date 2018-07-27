@@ -40,15 +40,13 @@
     @import "~@variables";
 
     .sidebar {
-        background-color: $light-blue;
-        padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 1.5rem 0;
 
         ul {
             font-size: 1.4rem;
-            margin-top: 3.5rem;
         }
     }
 

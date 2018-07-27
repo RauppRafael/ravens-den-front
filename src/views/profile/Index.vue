@@ -27,7 +27,6 @@
     @import "~@variables";
 
     .profile-container {
-        /*width: 100%;*/
         flex: 0 0 $sub-container-width;
         padding: 1rem;
     }
