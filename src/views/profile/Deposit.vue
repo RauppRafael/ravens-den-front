@@ -8,7 +8,12 @@
 
             <div class="box-body">
 
-                <button class="btn">
+                <div class="form-group amount">
+                    <label for="amount">Amount</label>
+                    <input type="text" id="amount" ref="amount">
+                </div>
+
+                <!--<button class="btn">
                     <i class="fab fa-paypal"></i>
                     <h4>Paypal</h4>
                 </button>
@@ -26,7 +31,7 @@
                 <button class="btn">
                     <i class="fab fa-ethereum"></i>
                     <h4>Ethereum</h4>
-                </button>
+                </button>-->
 
             </div>
         </div>
@@ -34,24 +39,33 @@
 </template>
 
 <script>
+    import InputMask from 'inputmask'
+
     export default {
+        mounted() {
+            let moneyMask = new InputMask({alias: 'currency'})
+            moneyMask.mask(this.$refs.amount)
+        }
     }
 </script>
 
 <style lang="scss" scoped>
     @import "~@variables";
 
-    .text-blue {
-        color: $dark-blue;
-    }
-
-    .text-yellow {
-        color: $yellow;
-    }
-
     .deposit {
         width: 100%;
         padding: 1rem;
+
+        .box-header {
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .form-group {
+            &.amount {
+                width: 25%;
+            }
+        }
 
         .btn {
             display: flex;
@@ -67,28 +81,6 @@
                 font-size: 3rem;
                 margin-right: 1rem;
             }
-        }
-    }
-
-    .box-header {
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    .box {
-        width: 100%;
-        border: .05rem solid $grey;
-        background-color: $white;
-        padding: 4rem 3rem;
-        box-shadow: $shadow;
-
-        .box-header {
-            margin-bottom: 2rem;
-        }
-
-        .box-body {
-            display: flex;
-            justify-content: space-between;
         }
     }
 </style>

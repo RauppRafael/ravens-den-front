@@ -97,23 +97,17 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     plugins: [
-        // Use provide plugin to load something for the entire app
-        //
-        // new webpack.ProvidePlugin({
-        //     $: 'jquery',
-        //     jQuery: 'jquery',
-        //     toastr: 'toastr',
-        //     Chartist: 'chartist',
-        // }),
-        new CopyWebpackPlugin(
-            [
-                {
-                    from: 'src/assets/fonts',
-                    to: 'fonts',
-                    toType: 'dir'
-                }
-            ]
-        )
+        new webpack.ProvidePlugin({
+            // $: 'jquery/dist/jquery.min',
+            // jQuery: 'jquery/dist/jquery.min',
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: 'src/assets/fonts',
+                to: 'fonts',
+                toType: 'dir'
+            },
+        ])
     ],
 }
 

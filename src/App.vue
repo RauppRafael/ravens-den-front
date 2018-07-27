@@ -29,6 +29,7 @@
     @import "~@animations";
     @import "~@variables";
     @import "~@scss/components.scss";
+    /*@import "~bootstrap/dist/css/bootstrap-grid.min.css";*/
 
     .container {
         background-color: $lighter-grey;

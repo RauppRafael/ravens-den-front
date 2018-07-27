@@ -44,3 +44,26 @@
     }
 }
 
+.box {
+    width: 100%;
+    border: .05rem solid $grey;
+    background-color: $white;
+    padding: 4rem 3rem;
+    box-shadow: $shadow;
+    flex-wrap: wrap;
+    border-radius: 2px;
+
+    .box-header {
+        margin-bottom: 2rem;
+    }
+
+    .box-body {
+    }
+}
+
+.label {
+    border: 1px solid $grey;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+}
+
