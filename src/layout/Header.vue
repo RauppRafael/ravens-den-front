@@ -10,7 +10,7 @@
             <router-link to="jobs" class="link">Jobs</router-link>
 
             <router-link to="/profile" class="">
-                <vue-dropdown text="WRX Raupp | $ 172,95">
+                <vue-dropdown text="WRX Raupp | $ 172,95" class="dead">
                     <vue-dropdown-item to="/profile">Profile</vue-dropdown-item>
                     <vue-dropdown-item to="/profile/deposit">Deposit</vue-dropdown-item>
                     <vue-dropdown-item to="/profile/withdraw">Withdraw</vue-dropdown-item>

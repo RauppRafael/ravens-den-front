@@ -1,0 +1,30 @@
+.btn {
+    padding: .5rem 2rem;
+    transition: box-shadow .4s, transform .4s;
+    box-shadow: 1px 1px 3px $grey;
+
+    &:hover {
+        box-shadow: 3px 3px 5px $grey;
+        transform: translate(-.5px, -.5px) scale(1.015);
+    }
+
+    &.dead {
+        padding: 0;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: none;
+            transform: none;
+        }
+    }
+
+    &.btn-primary {
+        color: $white;
+        background-color: $light-blue;
+    }
+
+    &.btn-danger {
+        color: $white;
+        background-color: red;
+    }
+}

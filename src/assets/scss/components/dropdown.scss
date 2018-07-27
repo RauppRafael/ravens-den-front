@@ -5,6 +5,8 @@
         height: 100%;
         background-color: transparent;
         color: $light-grey;
+
+        @extend .dead;
     }
 
     .dropdown-menu {
