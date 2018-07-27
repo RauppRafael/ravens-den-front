@@ -3,8 +3,13 @@
     background-color: $lighter-grey;
     overflow: hidden;
 
+    > * {
+        display: flex;
+    }
+
     .container {
-        padding: 4rem 8rem;
+        flex: 0 0 $container-width;
+        padding: 1rem;
         overflow-y: scroll;
         height: $main-content-height;
         width: $container-width;

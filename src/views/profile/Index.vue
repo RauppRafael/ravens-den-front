@@ -4,7 +4,7 @@
             <app-sidebar></app-sidebar>
         </transition>
 
-        <div class="profile-container">
+        <div class="container">
             <transition>
                 <router-view></router-view>
             </transition>
@@ -24,10 +24,4 @@
 
 <style lang="scss" scoped>
     @import "animations";
-    @import "~@variables";
-
-    .profile-container {
-        flex: 0 0 $container-width;
-        padding: 1rem;
-    }
 </style>

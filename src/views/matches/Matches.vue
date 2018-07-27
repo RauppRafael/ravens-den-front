@@ -1,13 +1,17 @@
 <template>
-	<div class="matches">
+    <div class="matches">
         <h1>Matches</h1>
     </div>
 </template>
 
 <script>
-	export default {
-		name: "Matches"
-	}
+    import AppSidebar from '@views/matchmaking/components/Sidebar'
+
+    export default {
+        components: {
+            AppSidebar,
+        }
+    }
 </script>
 
 <style scoped>

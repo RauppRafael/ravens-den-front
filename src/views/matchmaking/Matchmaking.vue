@@ -32,5 +32,9 @@
         align-items: flex-start;
         justify-content: space-between;
         background-color: lighten($light-grey, 70%);
+
+        .container {
+            padding: 4rem 8rem;
+        }
     }
 </style>
