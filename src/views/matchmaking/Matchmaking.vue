@@ -25,6 +25,7 @@
 
 <style lang="scss" scoped>
     @import "~@variables";
+    @import "animations";
 
     .matchmaking {
         display: flex;

@@ -3,7 +3,9 @@
         <app-header></app-header>
 
         <div class="container">
-            <router-view></router-view>
+            <transition>
+                <router-view></router-view>
+            </transition>
         </div>
     </div>
 </template>
@@ -18,21 +20,30 @@
             AppHeader,
             AppMatchmaking,
         },
+
+        computed: {
+            route() {
+                // console.log(this.$route)
+                return this.$route.name
+            }
+        }
     }
 </script>
 
 <style lang="scss">
     @import "~@scss/reset.scss";
-    @import "~@scss/typography.scss";
+    @import "~@scss/typography/typography.scss";
     @import "~@scss/fixes.scss";
     @import "~@scss/utilities.scss";
-    @import "~@animations";
     @import "~@variables";
     @import "~@scss/components.scss";
-    /*@import "~bootstrap/dist/css/bootstrap-grid.min.css";*/
+
+
 
     .container {
+        height: $container-height;
         background-color: $lighter-grey;
+        overflow: hidden;
 
         > * {
             display: flex;
@@ -42,7 +53,7 @@
                 padding: 4rem 8rem;
                 overflow-y: scroll;
                 overflow-x: hidden;
-                height: $sidebar-height;
+                height: $container-height;
                 width: 100%;
                 z-index: $z-index-container;
             }

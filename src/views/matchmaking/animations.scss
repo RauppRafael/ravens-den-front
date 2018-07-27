@@ -1,0 +1,54 @@
+@import '~@animation-mixins';
+
+.matchmaking {
+    &.v-enter {
+        .sidebar {
+            @include sidebar-out;
+        }
+        .matches {
+        }
+    }
+    &.v-enter-active {
+        @include animation-enter;
+
+        .sidebar {
+            @include animation-enter;
+        }
+        .matches {
+        }
+    }
+    &.v-enter-to {
+        .sidebar {
+            @include sidebar-in;
+        }
+        .matches {
+        }
+    }
+
+    &.v-leave {
+        .sidebar {
+            @include sidebar-in;
+        }
+        .matches {
+            opacity: 1;
+        }
+    }
+    &.v-leave-active {
+        @include animation-leave;
+
+        .sidebar {
+            @include animation-leave;
+        }
+        .matches {
+            @include animation-leave;
+        }
+    }
+    &.v-leave-to {
+        .sidebar {
+            @include sidebar-out;
+        }
+        .matches {
+            opacity: 0;
+        }
+    }
+}

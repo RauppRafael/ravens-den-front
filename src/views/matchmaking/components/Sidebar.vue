@@ -135,13 +135,12 @@
 
 <style lang="scss" scoped>
     @import "~@variables";
-    @import "~@animations";
     @import "~@mixins";
 
     .sidebar {
         li {
             margin-bottom: 2rem;
-            
+
             > *:first-child {
                 @include text-shadow;
                 color: $white;

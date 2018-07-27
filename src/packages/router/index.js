@@ -23,6 +23,7 @@ const router = new VueRouter({
             {
                 path: '/matchmaking',
                 component: Matchmaking,
+                name: 'matchmaking'
             },
             {
                 path: '/matches',

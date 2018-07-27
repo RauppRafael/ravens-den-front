@@ -1,0 +1,38 @@
+@import '~@animation-mixins';
+
+.profile {
+    &.v-enter {
+        .sidebar {
+            @include sidebar-out;
+        }
+    }
+    &.v-enter-active {
+        @include animation-enter;
+        .sidebar {
+            @include animation-enter;
+        }
+    }
+    &.v-enter-to {
+        .sidebar {
+            @include sidebar-in;
+        }
+    }
+
+    &.v-leave {
+        .sidebar {
+            @include sidebar-in;
+        }
+    }
+    &.v-leave-active {
+        @include animation-leave;
+
+        .sidebar {
+            @include animation-leave;
+        }
+    }
+    &.v-leave-to {
+        .sidebar {
+            @include sidebar-out;
+        }
+    }
+}

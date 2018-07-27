@@ -1,13 +1,18 @@
 <template>
-    <div class="">
-        <app-sidebar></app-sidebar>
+    <div class="profile">
+        <transition>
+            <app-sidebar></app-sidebar>
+        </transition>
 
-        <router-view></router-view>
+        <transition>
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
 <script>
     import AppSidebar from './components/Sidebar'
+
     export default {
         components: {
             AppSidebar,
@@ -15,6 +20,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    @import "animations";
 </style>

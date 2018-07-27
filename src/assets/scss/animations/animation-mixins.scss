@@ -1,0 +1,15 @@
+@mixin sidebar-out {
+    transform: translateX(-40rem);
+}
+
+@mixin sidebar-in {
+    transform: translateX(0);
+}
+
+@mixin animation-enter {
+    transition: all .4s .2s ease-out;
+}
+
+@mixin animation-leave {
+    transition: all .2s ease-in;
+}

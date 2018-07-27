@@ -81,9 +81,10 @@ module.exports = {
             '@assets': path.resolve('./src/assets'),
             '@colors': path.resolve('./src/assets/scss/colors.scss'),
             '@mixins': path.resolve('./src/assets/scss/mixins.scss'),
-            '@animations': path.resolve('./src/assets/scss/animations.scss'),
             '@variables': path.resolve('./src/assets/scss/variables.scss'),
+            '@animations': path.resolve('./src/assets/scss/animations/animations.scss'),
             '@components': path.resolve('./src/components'),
+            '@animation-mixins': path.resolve('./src/assets/scss/animations/animation-mixins.scss'),
         },
         extensions: ['*', '.js', '.vue', '.json']
     },

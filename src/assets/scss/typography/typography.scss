@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import "./colors";
-
-@font-face {
-    font-family: BurbankBigCondensedBlack;
-    src: url("/dist/fonts/BurbankBigCondensed-Black.otf") format("opentype");
-}
+@import "fonts";
+@import "utilities";
+@import "~@scss/colors.scss";
 
 html {
-    font-size: 62.5%; /* Now 10px = 1rem! */
+    font-size: 62.5%;
 }
 
 body, input {
@@ -17,13 +13,13 @@ body, input {
     color: $dark-grey;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: BurbankBigCondensedBlack, sans-serif;
-}
-
 @mixin heading($size){
     font-size: $size;
     line-height: $size;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: BurbankBigCondensedBlack, sans-serif;
 }
 
 h1 {
