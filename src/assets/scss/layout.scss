@@ -1,0 +1,12 @@
+.main {
+    height: $main-content-height;
+    background-color: $lighter-grey;
+    overflow: hidden;
+
+    .container {
+        padding: 4rem 8rem;
+        overflow-y: scroll;
+        height: $main-content-height;
+        width: $container-width;
+    }
+}
