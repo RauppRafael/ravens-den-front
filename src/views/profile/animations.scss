@@ -8,6 +8,7 @@
     }
     &.v-enter-active {
         @include animation-enter;
+
         .sidebar {
             @include animation-enter;
         }
@@ -33,6 +34,30 @@
     &.v-leave-to {
         .sidebar {
             @include sidebar-out;
+        }
+    }
+
+    .profile-container {
+        > * {
+            &.v-enter {
+                opacity: 0;
+            }
+            &.v-enter-active {
+                @include animation-enter;
+            }
+            &.v-enter-to {
+                opacity: 1;
+            }
+
+            &.v-leave {
+                opacity: 1;
+            }
+            &.v-leave-active {
+                @include animation-leave;
+            }
+            &.v-leave-to {
+                opacity: 0;
+            }
         }
     }
 }

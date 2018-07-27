@@ -3,11 +3,10 @@
     z-index: $z-index-sidebar;
     flex-shrink: 0;
     background-color: $light-blue;
-    width: 35rem;
+    width: $sidebar-width;
     height: $container-height;
     padding: 2rem 2.5rem;
     transition: all 1s;
-    //animation: sidebar-slide-in .6s ease-out;
     box-shadow: $shadow;
 }
 
@@ -49,16 +48,21 @@
     width: 100%;
     border: .05rem solid $grey;
     background-color: $white;
-    padding: 4rem 3rem;
     box-shadow: $shadow;
     flex-wrap: wrap;
     border-radius: 2px;
 
     .box-header {
-        margin-bottom: 2rem;
+        padding: 4rem 3rem 2rem;
+        border-bottom: 1px solid $grey;
     }
 
     .box-body {
+        padding: 2rem 3rem;
+    }
+
+    .box-footer {
+        padding: 2rem 3rem;
     }
 }
 

@@ -21,24 +21,17 @@
             AppMatchmaking,
         },
 
-        computed: {
-            route() {
-                // console.log(this.$route)
-                return this.$route.name
-            }
-        }
+        computed: {}
     }
 </script>
 
 <style lang="scss">
+    @import "~@variables";
     @import "~@scss/reset.scss";
-    @import "~@scss/typography/typography.scss";
     @import "~@scss/fixes.scss";
     @import "~@scss/utilities.scss";
-    @import "~@variables";
     @import "~@scss/components.scss";
-
-
+    @import "~@scss/typography/typography.scss";
 
     .container {
         height: $container-height;
