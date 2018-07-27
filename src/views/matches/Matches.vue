@@ -44,6 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "animations";
 
     .upcoming {
         .box-body {

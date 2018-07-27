@@ -1,15 +1,18 @@
 @import "~@mixins";
 
-.profile {
+.matches {
     &.v-enter {
         .sidebar {
             @include sidebar-out;
+        }
+        .box {
+            opacity: 0;
         }
     }
     &.v-enter-active {
         @include animation-enter;
 
-        .sidebar {
+        .sidebar, .box {
             @include animation-enter;
         }
     }
@@ -17,17 +20,23 @@
         .sidebar {
             @include sidebar-in;
         }
+        .box {
+            opacity: 1;
+        }
     }
 
     &.v-leave {
         .sidebar {
             @include sidebar-in;
         }
+        .box {
+            opacity: 1;
+        }
     }
     &.v-leave-active {
         @include animation-leave;
 
-        .sidebar {
+        .sidebar, .box {
             @include animation-leave;
         }
     }
@@ -35,29 +44,8 @@
         .sidebar {
             @include sidebar-out;
         }
-    }
-
-    .container {
-        > * {
-            &.v-enter {
-                opacity: 0;
-            }
-            &.v-enter-active {
-                @include animation-enter;
-            }
-            &.v-enter-to {
-                opacity: 1;
-            }
-
-            &.v-leave {
-                opacity: 1;
-            }
-            &.v-leave-active {
-                @include animation-leave;
-            }
-            &.v-leave-to {
-                opacity: 0;
-            }
+        .box {
+            opacity: 0;
         }
     }
 }

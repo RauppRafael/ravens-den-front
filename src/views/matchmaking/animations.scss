@@ -11,11 +11,10 @@
     &.v-enter-active {
         @include animation-enter;
 
-        .sidebar {
+        .sidebar, .matches {
             @include animation-enter;
         }
-        .matches {
-        }
+
     }
     &.v-enter-to {
         .sidebar {
@@ -36,10 +35,7 @@
     &.v-leave-active {
         @include animation-leave;
 
-        .sidebar {
-            @include animation-leave;
-        }
-        .matches {
+        .sidebar, .matches {
             @include animation-leave;
         }
     }
