@@ -1,0 +1,21 @@
+.box {
+    width: 100%;
+    border: .05rem solid $grey;
+    background-color: $white;
+    box-shadow: $shadow;
+    flex-wrap: wrap;
+    border-radius: 2px;
+
+    .box-header {
+        padding: 4rem 3rem 2rem;
+        border-bottom: 1px solid $grey;
+    }
+
+    .box-body {
+        padding: 2rem 3rem;
+    }
+
+    .box-footer {
+        padding: 2rem 3rem;
+    }
+}

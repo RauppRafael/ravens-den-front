@@ -39,12 +39,12 @@
 </template>
 
 <script>
-    import InputMask from 'inputmask'
+    // import InputMask from 'inputmask'
 
     export default {
         mounted() {
-            let moneyMask = new InputMask({alias: 'currency'})
-            moneyMask.mask(this.$refs.amount)
+            // let moneyMask = new InputMask({alias: 'currency'})
+            // moneyMask.mask(this.$refs.amount)
         }
     }
 </script>

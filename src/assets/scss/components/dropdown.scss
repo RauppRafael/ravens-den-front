@@ -1,0 +1,33 @@
+.dropdown {
+    height: 100%;
+
+    .btn {
+        height: 100%;
+        background-color: transparent;
+        color: $light-grey;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        display: none;
+        background-color: $darker-grey;
+        min-width: 6rem;
+
+        &.show {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown-item {
+            color: $light-grey;
+            padding: 1rem 4rem;
+            text-align: center;
+
+            &:hover {
+                color: $white;
+                background-color: $dark-grey;
+            }
+        }
+
+    }
+}
