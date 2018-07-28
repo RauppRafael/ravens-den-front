@@ -1,6 +1,6 @@
 <template>
     <nav class="sidebar">
-        <ul>
+        <ul class="sidebar-list">
             <router-link tag="li" to="/profile" class="sidebar-item" exact>
                 <a class="link">
                     <span class="icon"><i class="fa fa-user"></i></span>
@@ -39,13 +39,14 @@
 <style lang="scss" scoped>
     @import "~@variables";
 
+    /*
     .sidebar {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 1.5rem 0;
 
-        ul {
+        .sidebar-list {
             font-size: 1.4rem;
         }
     }
@@ -55,6 +56,10 @@
         height: 5rem;
         color: $darker-grey;
         transition: color 1s .2s;
+
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
 
         &::before {
             content: "";
@@ -70,47 +75,41 @@
             background-color .1s;
         }
 
-        &.active::before {
-            background-color: lighten($dark-blue, 5%);
-        }
-
         &.active, &:hover {
             color: $white;
 
             &::before {
+                background-color: lighten($dark-blue, 5%);
                 transform: scaleY(1);
                 width: 100%;
             }
         }
 
-        &:not(:last-child) {
-            margin-bottom: .5rem;
-        }
-    }
+        .link {
+            &:link, &:visited {
+                color: inherit;
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 1.5rem 3rem;
+                position: relative;
+                z-index: 10;
 
-    .link {
-        &:link, &:visited {
-            color: inherit;
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 1.5rem 3rem;
-            position: relative;
-            z-index: 10;
+                display: flex;
+                align-items: center;
+            }
 
-            display: flex;
-            align-items: center;
-        }
+            .icon {
+                display: flex;
+                justify-content: center;
+                width: 2rem;
+                font-size: 1.6rem;
+                margin-right: 1.5rem;
 
-        .icon {
-            display: flex;
-            justify-content: center;
-            width: 2rem;
-            font-size: 1.6rem;
-            margin-right: 1.5rem;
-
-            > * {
-                text-align: center;
+                > * {
+                    text-align: center;
+                }
             }
         }
     }
+    */
 </style>

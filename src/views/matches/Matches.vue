@@ -1,6 +1,6 @@
 <template>
     <div class="matches">
-        <div class="sidebar"></div>
+        <app-sidebar></app-sidebar>
         <div class="container">
             <div class="box">
                 <div class="box-header">
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-    import AppSidebar from '@views/matchmaking/components/Sidebar'
+    import AppSidebar from './components/Sidebar'
 
     export default {
         components: {

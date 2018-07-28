@@ -36,6 +36,10 @@ const router = new VueRouter({
                 component: Matches,
             },
             {
+                path: '/matches/history',
+                component: Matches,
+            },
+            {
                 path: '/profile',
                 component: ProfileIndex,
                 children: [
