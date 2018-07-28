@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Matchmaking from '@views/matchmaking/Matchmaking'
 import Matches from '@views/matches/Matches'
+import Help from '@views/help/Help'
 
 // Profile
 import ProfileIndex from '@views/profile'
@@ -24,6 +25,11 @@ const router = new VueRouter({
                 path: '/matchmaking',
                 component: Matchmaking,
                 name: 'matchmaking'
+            },
+            {
+                path: '/help',
+                component: Help,
+                name: 'help'
             },
             {
                 path: '/matches',

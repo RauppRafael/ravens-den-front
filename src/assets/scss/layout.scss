@@ -11,6 +11,7 @@
         flex: 0 0 $container-width;
         padding: 1rem;
         overflow-y: scroll;
+        overflow-x: hidden;
         height: $main-content-height;
         width: $container-width;
     }

@@ -7,7 +7,7 @@
 
             <router-link to="/matches" class="link">Matches</router-link>
 
-            <router-link to="jobs" class="link">Jobs</router-link>
+            <router-link to="/help" class="link">Help</router-link>
 
             <router-link to="/profile" class="">
                 <vue-dropdown text="WRX Raupp | $ 172,95" class="dead">

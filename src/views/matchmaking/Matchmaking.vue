@@ -3,22 +3,31 @@
         <app-matchmaking-sidebar></app-matchmaking-sidebar>
 
         <div class="matches container">
-            <app-match data-animation-delay="0s"></app-match>
-            <app-match data-animation-delay=".1s"></app-match>
-            <app-match data-animation-delay=".2s"></app-match>
-            <app-match data-animation-delay=".3s"></app-match>
+            <template v-for="(match, index) in matches">
+
+                <app-match
+                    :data-match="match"
+                    :data-animation-delay="(index / 10) + 's'"></app-match>
+
+            </template>
         </div>
     </div>
 </template>
 
 <script>
     import AppMatchmakingSidebar from './components/Sidebar'
-    import AppMatch from './components/Match2'
+    import AppMatch from './components/Match'
 
     export default {
         components: {
             AppMatchmakingSidebar,
             AppMatch,
+        },
+
+        computed: {
+            matches() {
+                return ['','','','','','','','',]
+            }
         }
     }
 </script>

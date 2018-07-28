@@ -8,11 +8,21 @@
         transform: translate(-.5px, -.5px) scale(1.015);
     }
 
+    &:active {
+        box-shadow: none;
+        transform: translate(0) scale(0.95);
+    }
+
     &.dead {
         padding: 0;
         box-shadow: none;
 
         &:hover {
+            box-shadow: none;
+            transform: none;
+        }
+
+        &:active {
             box-shadow: none;
             transform: none;
         }
@@ -25,6 +35,6 @@
 
     &.btn-danger {
         color: $white;
-        background-color: red;
+        background-color: $red;
     }
 }

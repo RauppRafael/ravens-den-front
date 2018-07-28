@@ -1,54 +1,164 @@
 <template>
-    <div class="match">
+    <div class="match flex-col" :style="{'animation-delay': dataAnimationDelay}">
+
         <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam blanditiis corporis culpa eligendi
-            in
-            incidunt molestiae nobis nulla perferendis possimus quae sed sunt tempore, ullam unde vel veritatis? Illum?
+            <div class="date-time flex-col flex-center">
+                <h4 class="date">TODAY</h4>
+                <h3 class="time">08:00</h3>
+            </div>
+
+            <div>
+                <h5>Players</h5>
+                <div class="flex-center">
+                    <div>
+                        <h6 class="text-right">Current</h6>
+                        <h4>83</h4>
+                    </div>
+                    <h3 class="slash">/</h3>
+                    <div>
+                        <h6>Max</h6>
+                        <h4>100</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h5>Entry</h5>
+
+                <div class="flex-center">
+                    <div>
+                        <h6 class="text-right">&nbsp;</h6>
+                        <h4 class="text-right">$0.10</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h5>Prize</h5>
+                <div class="flex-center">
+                    <div>
+                        <h6 class="text-right">Current</h6>
+                        <h4>$8.30</h4>
+                    </div>
+                    <h3 class="slash">/</h3>
+                    <div>
+                        <h6>Max</h6>
+                        <h4>$10.00</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-primary"><h5>RULES</h5></button>
+                <button class="btn btn-danger"><h5>LEAVE</h5></button>
+                <!--<button class="btn"><h5>JOIN</h5></button>-->
+            </div>
         </div>
-        <div class="shadow"></div>
+
     </div>
 </template>
 
 <script>
     export default {
-        name: "Match"
+        props: {
+            dataAnimationDelay: {
+                type: String,
+                default: '0s',
+            }
+        }
     }
 </script>
 
 <style lang="scss" scoped>
     @import "~@variables";
+    @import "~@mixins";
+
+    @mixin rotate {
+        transform: rotate(-1deg) skew(-15deg);
+    }
+
+    @mixin rotate-inverse {
+        transform: rotate(1deg) skew(15deg);
+    }
 
     .match {
-        $polygon: polygon(4% 10%, 100% 0, 96% 75%, 36% 87%, 90% 84%, 0 100%);
-        $height: 150px;
+        @include rotate;
 
-        position: relative;
-        width: 100%;
-        height: $height;
+        background-color: $yellow;
+        box-shadow: $shadow;
+        height: 15rem;
+        padding: 1.8rem 5%;
+        animation: fade-in 1s ease-out backwards;
 
+        @keyframes fade-in {
+            from {
+                transform: translateX(120rem) rotate(-1deg) skew(-15deg);
+                opacity: .5;
+            }
 
-        > * {
-            width: 100%;
-            -webkit-clip-path: $polygon;
-            clip-path: $polygon;
+            to {
+                transform: translateX(0) rotate(-1deg) skew(-15deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                transform: translateX(0) rotate(-1deg) skew(-15deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(120rem) rotate(-1deg) skew(-15deg);
+                opacity: .5;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 2.5rem;
         }
 
         .content {
-            height: 100%;
-            background: $yellow;
-            padding: 4rem 5rem 1rem 8.5rem;
-        }
+            @include vertical-center;
 
-        .shadow {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            height: $height;
-            left: 3px;
-            top: 3px;
+            justify-content: space-between;
 
-            background: rgba($dark-grey, .5);
-            filter: blur(35rem);
+            > * {
+                @include rotate-inverse;
+                margin: .5rem 1rem;
+            }
+
+            .date-time {
+                width: 10rem;
+            }
+
+            .slash {
+                margin: 0 .8rem;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+
+                .btn {
+                    @include rotate;
+
+                    padding: 1rem 5rem;
+                    text-shadow: $shadow;
+                    letter-spacing: .1rem;
+
+                    > * {
+                        @include rotate-inverse;
+                        @include text-shadow;
+                    }
+
+                    &:first-child {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
         }
     }
 </style>
