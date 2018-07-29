@@ -7,7 +7,7 @@
 }
 
 @mixin animation-enter {
-    transition: all .4s .2s ease-out;
+    transition: all .4s ease-out;
 }
 
 @mixin animation-leave {

@@ -19,7 +19,10 @@
             </router-link>
         </div>
 
-        <router-link to="#" class="yellow">Download</router-link>
+        <router-link to="#" class="action flex-column">
+            <i class="fas fa-sign-out-alt text-xl"></i>
+            <span class="text-xs text-bold">Sign Out</span>
+        </router-link>
     </header>
 </template>
 
@@ -84,10 +87,11 @@
             }
         }
 
-        .yellow {
+        .action {
             padding: 1rem;
             background-color: $yellow;
             color: black;
+            width: 10rem;
         }
     }
 </style>

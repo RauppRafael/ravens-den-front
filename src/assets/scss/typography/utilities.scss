@@ -3,23 +3,23 @@
     // TODO set text sizes
 
     &-xs {
-        font-size: 1rem;
+        font-size: .8rem;
     }
 
     &-sm {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     &-md {
-        font-size: 1rem;
+        font-size: 1.6rem;
     }
 
     &-lg {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     &-xl {
-        font-size: 1rem;
+        font-size: 2.4rem;
     }
 
     &-center {
@@ -44,6 +44,10 @@
 
     &-muted {
         color: $grey;
+    }
+
+    &-green {
+        color: $light-green;
     }
 
 }

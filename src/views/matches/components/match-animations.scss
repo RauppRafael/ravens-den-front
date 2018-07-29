@@ -1,7 +1,7 @@
 .match {
     .content {
         &.content-enter {
-            padding-bottom: 0;
+            padding: 0 2rem;
             max-height: 0;
             opacity: 0;
         }
@@ -21,11 +21,14 @@
         }
 
         &.content-leave-active {
-            transition: max-height .4s, padding-top .2s .3s, opacity .4s;
+            transition: max-height .4s,
+            opacity .3s,
+            padding-top .2s .2s,
+            padding-bottom .3s;
         }
 
         &.content-leave-to {
-            padding-bottom: 0;
+            padding: 0 2rem;
             max-height: 0;
             opacity: 0;
         }

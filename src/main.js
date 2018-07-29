@@ -3,6 +3,10 @@ import App from './App.vue'
 
 import store from './packages/store'
 import router from './packages/router'
+
+import VTooltip from 'v-tooltip'
+Vue.use(VTooltip)
+
 // import VueMq from 'vue-mq'
 //
 // Vue.use(VueMq, {

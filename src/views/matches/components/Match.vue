@@ -2,66 +2,70 @@
     <li class="match">
         <div class="header" @click="expand = !expand">
             <div class="">Today, 22:00 - In 12 minutes</div>
-            <span><span class="text-bold">1v1</span></span>
+            <span class="text-bold">Playground 2v2</span>
             <i class="fa fa-chevron-down"
                :class="{rotate: expand}"></i>
         </div>
 
         <transition name="content">
-            <div v-if="expand" class="content flex-space-between flex-end">
+            <div v-if="expand" class="content flex-space-between">
+
                 <div class="players">
                     <h5>Players</h5>
                     <ul class="list">
                         <li style="margin-top: 1rem" class="flex-center">
-                            <div class="icon-wrapper">
-                                <i class="fa fa-caret-right" style="margin-right: .5rem;"></i>
-                            </div>
-                            <h6 style="margin-right: .5rem;" class="player-name text-primary">WRX Raupp</h6>
-                            <!--<div class="icon-wrapper">-->
-                            <!--&lt;!&ndash;<i class="fa fa-copy text-muted"></i>&ndash;&gt;-->
-                            <!--</div>-->
+                            <i class="fa fa-caret-right ml-1"></i>
+                            <h6 class="player-name text-green ml-0-5">WRX Raupp</h6>
                         </li>
 
                         <li style="margin-top: 1rem" class="flex-center">
-                            <div class="icon-wrapper">
-                                <i class="fa fa-caret-right" style="margin-right: .5rem;"></i>
-                            </div>
-                            <h6 style="margin-right: .5rem;" class="player-name text-danger">djeguinho delas</h6>
-                            <div class="icon-wrapper">
-                                <i class="far fa-copy text-muted pointer"></i>
-                            </div>
+                            <i class="fa fa-caret-right ml-1"></i>
+                            <h6 class="player-name text-primary ml-0-5">djeguinho delas</h6>
+                            <i class="far fa-copy text-muted pointer ml-0-5" v-tooltip="'Copy'"></i>
+                        </li>
+
+                        <li style="margin-top: 1rem" class="flex-center">
+                            <i class="fa fa-caret-right ml-1"></i>
+                            <h6 class="player-name text-danger ml-0-5">F3N1x_</h6>
+                            <i class="far fa-copy text-muted pointer ml-0-5" v-tooltip="'Copy'"></i>
+                        </li>
+
+                        <li style="margin-top: 1rem" class="flex-center">
+                            <i class="fa fa-caret-right ml-1"></i>
+                            <h6 class="player-name text-danger ml-0-5">deftzin</h6>
+                            <i class="far fa-copy text-muted pointer ml-0-5" v-tooltip="'Copy'"></i>
                         </li>
                     </ul>
                 </div>
 
-                <div class="">
+                <div>
                     <div class="mb-2">
                         <h5>Game Mode</h5>
-                        <span>Playground 1v1</span>
+                        <span>Playground 2v2</span>
                     </div>
 
-                    <div class="">
+                    <div>
                         <h5>Wins At</h5>
                         <span>3 kills</span>
                     </div>
                 </div>
 
-                <div class="server">
+                <div>
                     <div class="mb-2">
                         <h5>When</h5>
                         <span>20/05/2016 13:00</span>
                     </div>
 
-                    <div class="">
+                    <div>
                         <h5>Server</h5>
                         <span>BR</span>
                     </div>
                 </div>
 
-                <div class="">
+                <div>
                     <div class="mb-2">
                         <h5>Prize</h5>
-                        <span>$ 0.50</span>
+                        <span>$ 1.00</span>
                     </div>
                     <div>
                         <h5>Entry Fee</h5>
@@ -69,9 +73,8 @@
                     </div>
                 </div>
 
-                <div class="flex-column flex-space-between self-stretch">
-                    <!--<button class="btn btn-primary">Set Results</button>-->
-                    <button class="btn btn-primary">How To Play</button>
+                <div class="flex-column self-stretch flex-justify-end">
+                    <button class="btn btn-primary mb-1">How To Play</button>
                     <button class="btn btn-danger">Refund</button>
                 </div>
 
@@ -93,15 +96,6 @@
 <style lang="scss">
     @import "~@variables";
     @import "match-animations";
-
-    .icon-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        height: 2.5rem;
-        width: 2.5rem;
-    }
 
     .match {
 
@@ -140,6 +134,7 @@
                 .list {
                     .player-name {
                         font-size: 1.8rem;
+                        letter-spacing: .2px;
                     }
                 }
             }
