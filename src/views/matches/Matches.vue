@@ -1,32 +1,15 @@
 <template>
     <div class="matches">
-        <app-sidebar></app-sidebar>
+        <matches-sidebar></matches-sidebar>
+
         <div class="container">
             <div class="box">
                 <div class="box-header">
                     <h2>Matches</h2>
                 </div>
-                <div class="box-body">
-                    <div class="box upcoming">
-                        <div class="box-header">
-                            <h4>Upcoming</h4>
-                        </div>
-                        <div class="box-body">
-                            <div class="">Today, 22:00</div>
-                            <button class="btn btn-danger">Leave</button>
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="box">
-                        <div class="box-header">
-                            <h4>History</h4>
-                        </div>
-                        <div class="box-body">
-                            Yesterday, 22:00
-                        </div>
-                    </div>
-                </div>
+                <!--<div class="box-body">-->
+                    <matches-list></matches-list>
+                <!--</div>-->
             </div>
         </div>
 
@@ -34,24 +17,17 @@
 </template>
 
 <script>
-    import AppSidebar from './components/Sidebar'
+    import MatchesSidebar from './components/Sidebar'
+    import MatchesList from './components/List'
 
     export default {
         components: {
-            AppSidebar,
+            MatchesSidebar,
+            MatchesList,
         }
     }
 </script>
 
 <style lang="scss" scoped>
     @import "animations";
-
-    .upcoming {
-        .box-body {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
-
 </style>

@@ -1,0 +1,33 @@
+.match {
+    .content {
+        &.content-enter {
+            padding-top: 0;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        &.content-enter-active {
+            transition: all .4s, opacity .6s;
+        }
+
+        &.content-enter-to {
+            max-height: 50rem;
+            opacity: 1;
+        }
+
+        &.content-leave {
+            max-height: 50rem;
+            opacity: 1;
+        }
+
+        &.content-leave-active {
+            transition: max-height .4s, padding-top .2s .3s, opacity .4s;
+        }
+
+        &.content-leave-to {
+            padding-top: 0;
+            max-height: 0;
+            opacity: 0;
+        }
+    }
+}
