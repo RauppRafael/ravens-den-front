@@ -16,6 +16,13 @@
                 </a>
             </router-link>
 
+            <router-link tag="li" to="/matches/create" class="sidebar-item">
+                <a class="link">
+                    <span class="icon"><i class="fa fa-plus"></i></span>
+                    <span>Create</span>
+                </a>
+            </router-link>
+
         </ul>
     </nav>
 </template>

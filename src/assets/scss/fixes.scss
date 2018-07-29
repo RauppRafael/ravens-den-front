@@ -30,6 +30,10 @@
 .multiselect__tags, .input-date {
     border-radius: 3px !important;
     border: 1px solid $grey !important;
+
+    .multiselect__tag {
+        border-radius: 3px;
+    }
 }
 
 i {

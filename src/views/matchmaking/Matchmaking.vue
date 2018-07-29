@@ -3,6 +3,18 @@
         <app-matchmaking-sidebar></app-matchmaking-sidebar>
 
         <div class="matches container">
+
+            <template>
+                <!--if no matches found-->
+                <h4 class="text-muted mb-2">Sorry, we couldn't find you a match.</h4>
+
+                <h5 class="text-muted mb-3">
+                    Would you like to
+                    <router-link to="/matches/create" class="link">create a new one</router-link>
+                    ?
+                </h5>
+            </template>
+
             <template v-for="(match, index) in matches">
 
                 <app-match
@@ -26,7 +38,7 @@
 
         computed: {
             matches() {
-                return ['','','','','','','','',]
+                return ['', '', '', '', '', '', '', '',]
             }
         }
     }
@@ -44,6 +56,10 @@
 
         .container {
             padding: 4rem 8rem;
+
+            .link {
+                text-decoration: underline;
+            }
         }
     }
 </style>

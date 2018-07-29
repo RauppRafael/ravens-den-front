@@ -10,11 +10,7 @@
 
             <li>
                 <h5>Servers</h5>
-                <vue-multiselect :options="configs.servers.options"
-                                 :multiple="true"
-                                 :custom-label="configs.servers.label"
-                                 track-by="short"
-                                 v-model="filters.servers"></vue-multiselect>
+                <server-select v-model="filters.servers"></server-select>
             </li>
 
             <li>
@@ -22,15 +18,17 @@
                 <vue-date-range i18n="EN"
                                 format="MMM/DD/YY"
                                 :captions="configs.dateRange.captions"
-                                @selected="dateSelected"></vue-date-range>
+                                @selected="log"></vue-date-range>
             </li>
 
             <li>
                 <h5>Entry fee</h5>
-                <vue-multiselect :options="configs.buyIn.options"
-                                 :multiple="true"
-                                 v-model="filters.buyIn"
-                                 @input="log"></vue-multiselect>
+                <entry-fee-select v-model="filters.buyIn"></entry-fee-select>
+            </li>
+
+            <li>
+                <h5>Mode</h5>
+                <game-mode-select v-model="filters.gameMode"></game-mode-select>
             </li>
 
             <li>
@@ -45,13 +43,17 @@
 <script>
     import VueMultiselect from 'vue-multiselect'
     import VueDateRange from 'vue-rangedate-picker'
-
-    import 'vue-multiselect/dist/vue-multiselect.min.css'
+    import ServerSelect from '@components/selects/Server'
+    import EntryFeeSelect from '@components/selects/EntryFee'
+    import GameModeSelect from '@components/selects/GameMode'
 
     export default {
         components: {
             VueMultiselect,
             VueDateRange,
+            ServerSelect,
+            EntryFeeSelect,
+            GameModeSelect,
         },
 
         data() {
@@ -65,34 +67,12 @@
                         ],
                     },
 
-                    servers: {
-                        options: [
-                            {short: 'BR', name: 'Brazil'},
-                            {short: 'US-W', name: 'United States - West'},
-                            {short: 'US-E', name: 'United States - East'},
-                        ],
-
-                        label: (option) => {
-                            return `${option.short} - ${option.name}`
-                        }
-                    },
-
                     dateRange: {
                         captions: {
                             'title': null,
                             'ok_button': 'Apply'
                         },
                         presetRanges: {}
-                    },
-
-                    buyIn: {
-                        options: [
-                            '$ 0.01',
-                            '$ 0.05',
-                            '$ 0.10',
-                            '$ 0.50',
-                            '$ 1',
-                        ]
                     },
 
                     players: {
@@ -116,14 +96,12 @@
                     buyIn: null,
                     players: null,
                     servers: null,
+                    gameMode: null,
                 }
             }
         },
 
         methods: {
-            dateSelected(event) {
-                console.log(event)
-            },
 
             log(event) {
                 console.log(event)

@@ -2,8 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Matchmaking from '@views/matchmaking/Matchmaking'
-import Matches from '@views/matches/Matches'
 import Help from '@views/help/Help'
+
+// Matches
+import Matches from '@views/matches/Matches'
+import MatchesList from '@views/matches/components/List'
+import CreateMatch from '@views/matches/components/Create'
 
 // Profile
 import ProfileIndex from '@views/profile'
@@ -34,6 +38,16 @@ const router = new VueRouter({
             {
                 path: '/matches',
                 component: Matches,
+                children: [
+                    {
+                        path: '/',
+                        component: MatchesList,
+                    },
+                    {
+                        path: 'create',
+                        component: CreateMatch,
+                    }
+                ]
             },
             {
                 path: '/matches/history',

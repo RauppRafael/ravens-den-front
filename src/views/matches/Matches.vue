@@ -3,9 +3,10 @@
         <matches-sidebar></matches-sidebar>
 
         <div class="container">
-            <div class="box">
-                <matches-list></matches-list>
-            </div>
+            <!--<div class="box">-->
+            <router-view></router-view>
+                <!--<matches-list></matches-list>-->
+            <!--</div>-->
         </div>
 
     </div>

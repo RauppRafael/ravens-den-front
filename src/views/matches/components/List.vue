@@ -1,9 +1,11 @@
 <template>
-    <ul class="matches-list">
-        <app-match></app-match>
-        <app-match></app-match>
-        <app-match></app-match>
-    </ul>
+    <div class="box">
+        <ul class="matches-list">
+            <app-match></app-match>
+            <app-match></app-match>
+            <app-match></app-match>
+        </ul>
+    </div>
 </template>
 
 <script>

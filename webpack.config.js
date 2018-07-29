@@ -104,8 +104,8 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: 'src/assets/fonts',
-                to: 'fonts',
+                from: 'src/assets/static',
+                to: '',
                 toType: 'dir'
             },
         ])

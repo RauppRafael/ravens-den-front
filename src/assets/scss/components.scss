@@ -4,9 +4,11 @@
 @import "components/button";
 @import "components/tooltip";
 
-.label {
-    border: 1px solid $grey;
-    border-radius: 3px;
-    padding: .5rem 1rem;
-}
+.form-group {
+    margin-bottom: 1.5rem;
 
+    label {
+        display: inline-block;
+        margin-bottom: .3rem;
+    }
+}

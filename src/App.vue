@@ -13,6 +13,8 @@
 <script>
     import AppHeader from './layout/Header'
     import AppMatchmaking from '@views/matchmaking/Matchmaking'
+
+    import 'vue-multiselect/dist/vue-multiselect.min.css'
     import '@fortawesome/fontawesome-free/css/all.min.css'
 
     export default {
