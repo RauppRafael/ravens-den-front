@@ -1,7 +1,7 @@
 .match {
     .content {
         &.content-enter {
-            padding-top: 0;
+            padding-bottom: 0;
             max-height: 0;
             opacity: 0;
         }
@@ -25,7 +25,7 @@
         }
 
         &.content-leave-to {
-            padding-top: 0;
+            padding-bottom: 0;
             max-height: 0;
             opacity: 0;
         }

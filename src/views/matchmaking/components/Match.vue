@@ -1,8 +1,8 @@
 <template>
-    <div class="match flex-col" :style="{'animation-delay': dataAnimationDelay}">
+    <div class="match flex-column" :style="{'animation-delay': dataAnimationDelay}">
 
         <div class="content">
-            <div class="date-time flex-col flex-center">
+            <div class="date-time flex-column flex-center">
                 <h4 class="date">TODAY</h4>
                 <h3 class="time">08:00</h3>
             </div>

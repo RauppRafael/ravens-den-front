@@ -30,4 +30,20 @@
         text-align: right;
     }
 
+    &-bold {
+        font-weight: 600;
+    }
+
+    &-primary {
+        color: $light-blue;
+    }
+
+    &-danger {
+        color: $red;
+    }
+
+    &-muted {
+        color: $grey;
+    }
+
 }

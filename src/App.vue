@@ -3,7 +3,7 @@
         <app-header></app-header>
 
         <div class="main">
-            <transition>
+            <transition mode="out-in">
                 <router-view></router-view>
             </transition>
         </div>
