@@ -1,6 +1,6 @@
 <template>
     <vue-date-picker lang="en"
-                     format="MM/DD/YY hh:mm"
+                     format="MM/DD/YY HH:mm"
                      width="100%"
                      placeholder="Select date"
                      v-model="val"

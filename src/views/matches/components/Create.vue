@@ -20,13 +20,13 @@
                         <vue-date-picker v-model="match.date" @input="log"></vue-date-picker>
                     </div>
 
-                    <div class="form-group">
-                        <input type="text"
-                               class="form-control"
-                               v-model="name"
-                               v-form-control="'name'">
-                        <label for="" class="label" :class="{filled: filledLabel('name')}">DISPLAY NAME *</label>
-                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<input type="text"-->
+                               <!--class="form-control"-->
+                               <!--v-model="name"-->
+                               <!--v-form-control="'name'">-->
+                        <!--<label for="" class="label" :class="{filled: filledLabel('name')}">DISPLAY NAME *</label>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="half">
