@@ -77,10 +77,11 @@
         }
 
         .link {
+            padding: 0 1rem;
             font-size: 1.4rem;
             color: $light-grey;
             transition: all .2s ease-in-out;
-            border: none;
+            border: 0 solid $yellow;
 
             &.active, &:hover {
                 border-bottom: 5px solid $yellow;

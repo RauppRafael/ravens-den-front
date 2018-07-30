@@ -12,6 +12,7 @@
 
 <script>
     import VueDatePicker from 'vue2-datepicker'
+    import vModel from '@mixins/v-model'
 
     export default {
         components: {
@@ -19,23 +20,13 @@
         },
 
         props: {
-            value: {},
             dataType: {
                 type: String,
                 default: 'datetime'
-            }
+            },
         },
 
-        computed: {
-            val: {
-                get() {
-                    return this.value
-                },
-                set(val) {
-                    this.$emit('input', val)
-                },
-            }
-        },
+        mixins: [vModel],
     }
 </script>
 

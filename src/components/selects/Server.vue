@@ -9,6 +9,7 @@
 
 <script>
     import VueMultiselect from 'vue-multiselect'
+    import vModel from '@mixins/v-model'
 
     export default {
         components: {
@@ -20,7 +21,6 @@
                 type: Boolean,
                 default: true
             },
-            value: {}
         },
 
         computed: {
@@ -31,22 +31,15 @@
                     {short: 'US-E', name: 'United States - East'},
                 ]
             },
-
-            val: {
-                get() {
-                    return this.value
-                },
-                set(val) {
-                    this.$emit('input', val)
-                },
-            }
         },
 
         methods: {
             label(option) {
                 return `${option.short} - ${option.name}`
             }
-        }
+        },
+
+        mixins: [vModel],
     }
 </script>
 

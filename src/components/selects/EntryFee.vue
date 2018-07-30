@@ -7,6 +7,7 @@
 
 <script>
     import VueMultiselect from 'vue-multiselect'
+    import vModel from '@mixins/v-model'
 
     export default {
         components: {
@@ -18,7 +19,6 @@
                 type: Boolean,
                 default: true
             },
-            value: {}
         },
 
         computed: {
@@ -34,16 +34,9 @@
                     '$ 10.00',
                 ]
             },
-
-            val: {
-                get() {
-                    return this.value
-                },
-                set(val) {
-                    this.$emit('input', val)
-                },
-            }
         },
+
+        mixins: [vModel],
     }
 </script>
 

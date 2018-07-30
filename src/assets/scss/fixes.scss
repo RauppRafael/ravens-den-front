@@ -31,7 +31,8 @@
     border-radius: 3px !important;
     border: 1px solid $grey !important;
 
-    span > span {
+
+    span > span.multiselect__single {
         color: $grey;
     }
 
