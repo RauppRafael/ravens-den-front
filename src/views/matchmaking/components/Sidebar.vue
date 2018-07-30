@@ -113,7 +113,7 @@
 
 <style lang="scss" scoped>
     @import "~@variables";
-    @import "~@mixins";
+    @import "~@scss-mixins";
 
     .sidebar {
         li {

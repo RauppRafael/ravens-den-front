@@ -1,7 +1,8 @@
 <template>
     <vue-multiselect :options="gameModes"
                      :multiple="dataMultiple"
-                     v-model="val"></vue-multiselect>
+                     v-model="val"
+                     placeholder="Select game mode"></vue-multiselect>
 </template>
 
 <script>

@@ -3,19 +3,12 @@ import App from './App.vue'
 
 import store from './packages/store'
 import router from './packages/router'
+import Mixins from './packages/mixins'
 
 import VTooltip from 'v-tooltip'
-Vue.use(VTooltip)
 
-// import VueMq from 'vue-mq'
-//
-// Vue.use(VueMq, {
-//     breakpoints: {
-//         sm: 450,
-//         md: 1250,
-//         lg: Infinity,
-//     }
-// })
+Vue.use(Mixins)
+Vue.use(VTooltip)
 
 new Vue({
     el: '#app',

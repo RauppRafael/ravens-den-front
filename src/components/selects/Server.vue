@@ -3,6 +3,7 @@
                      :multiple="dataMultiple"
                      :custom-label="label"
                      track-by="short"
+                     placeholder="Select server"
                      v-model="val"></vue-multiselect>
 </template>
 
@@ -19,8 +20,7 @@
                 type: Boolean,
                 default: true
             },
-            value: {
-            }
+            value: {}
         },
 
         computed: {
@@ -43,7 +43,7 @@
         },
 
         methods: {
-            label (option) {
+            label(option) {
                 return `${option.short} - ${option.name}`
             }
         }

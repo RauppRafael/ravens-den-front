@@ -76,14 +76,17 @@ module.exports = {
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@scss': path.resolve('./src/assets/scss'),
+
             '@views': path.resolve('./src/views'),
             '@assets': path.resolve('./src/assets'),
+            '@mixins': path.resolve('./src/packages/mixins'),
+            '@components': path.resolve('./src/components'),
+
+            '@scss': path.resolve('./src/assets/scss'),
             '@colors': path.resolve('./src/assets/scss/colors.scss'),
-            '@mixins': path.resolve('./src/assets/scss/mixins/mixins.scss'),
             '@variables': path.resolve('./src/assets/scss/variables.scss'),
             '@animations': path.resolve('./src/assets/scss/animations/animations.scss'),
-            '@components': path.resolve('./src/components'),
+            '@scss-mixins': path.resolve('./src/assets/scss/mixins/mixins.scss'),
             '@animation-mixins': path.resolve('./src/assets/scss/animations/animation-mixins.scss'),
         },
         extensions: ['*', '.js', '.vue', '.json']

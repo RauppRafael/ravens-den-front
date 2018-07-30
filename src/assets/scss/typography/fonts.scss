@@ -4,3 +4,12 @@
     font-family: BurbankBigCondensedBlack;
     src: url("/dist/fonts/BurbankBigCondensed-Black.otf") format("opentype");
 }
+
+@font-face {
+    font-family: 'BrutalType';
+    src: url('/dist/fonts/BrutalType-ExtraLight.eot');
+    src: url('/dist/fonts/BrutalType-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('/dist/fonts/BrutalType-ExtraLight.woff2') format('woff2'),
+    url('/dist/fonts/BrutalType-ExtraLight.woff') format('woff'),
+    url('/dist/fonts/BrutalType-ExtraLight.ttf') format('truetype');
+}

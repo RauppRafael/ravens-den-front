@@ -71,7 +71,7 @@
 
 <style lang="scss" scoped>
     @import "~@variables";
-    @import "~@mixins";
+    @import "~@scss-mixins";
 
     @mixin rotate {
         transform: rotate(-1deg) skew(-15deg);
