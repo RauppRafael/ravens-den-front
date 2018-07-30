@@ -13,14 +13,27 @@ export default {
     },
 
     directives: {
-        focus: {
+        'form-control': {
             inserted: (el, binding, vnode) => {
-                let self = this
                 el.addEventListener('focus', () => {
                     vnode.context.focus = binding.value
                 })
+                el.addEventListener('blur', () => {
+                    vnode.context.focus = null
+                })
             }
-        }
+        },
+
+        // 'form-label': {
+        //     update: (el, binding, vnode) => {
+        //         console.log(el)
+        //         if (vnode.context.filledLabel(binding.value)) {
+        //             el.classList.add('filled')
+        //         } else {
+        //             el.classList.remove('filled')
+        //         }
+        //     }
+        // }
     }
 
 }

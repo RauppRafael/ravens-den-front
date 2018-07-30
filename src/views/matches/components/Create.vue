@@ -24,19 +24,9 @@
                         <input type="text"
                                class="form-control"
                                v-model="name"
-                               @blur="focus = null"
-                               v-focus="'name'">
-                        <label for="" class="label" :class="{filled: filledLabel('name')}">DISPLAY NAME*</label>
+                               v-form-control="'name'">
+                        <label for="" class="label" :class="{filled: filledLabel('name')}">DISPLAY NAME *</label>
                     </div>
-
-                    <!--<div class="form-group">-->
-                        <!--<input type="text"-->
-                               <!--class="form-control"-->
-                               <!--v-model="test"-->
-                               <!--@focus="focus = 'test'"-->
-                               <!--@blur="focus = null">-->
-                        <!--<label for="" class="label" :class="{filled: filledLabel('test')}">DISPLAY NAME*</label>-->
-                    <!--</div>-->
                 </div>
 
                 <div class="half">
@@ -93,9 +83,6 @@
                 console.log(e)
             },
         },
-
-        // mounted() {
-        // },
 
         mixins: [Form]
     }

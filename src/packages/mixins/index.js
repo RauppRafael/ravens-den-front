@@ -6,8 +6,4 @@ export default {
         Vue.prototype.$mixins = Vue.mixins = this
     },
 
-    // filledLabel(field) {
-    //     return this.focus === field || this[field]
-    // },
-
 }
