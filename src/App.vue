@@ -27,8 +27,15 @@
             if (!this.$auth.token())
                 console.log('redirect back')
 
-            this.$loader.matches.matchmaking({})
-            this.$loader.users.login({email: 'raupperino@gmail.com', password: '200516'})
+            if (this.$auth.token())
+                this.$loader.users.user()
+
+            this.$loader.users.login({email: 'raupperino@gmail.com', password: '200516'}).then(
+                () => {
+                    this.$loader.matches.matchmaking({})
+                }
+            )
+
         }
     }
 </script>

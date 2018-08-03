@@ -15,8 +15,7 @@ export default {
 
                 return request;
             },
-            (error) => {
-            }
+            (error) => {}
         );
 
         Vue.prototype.$auth = Vue.auth = this
@@ -29,6 +28,10 @@ export default {
         localStorage.setItem('token', token)
 
         return this
+    },
+
+    logout() {
+        localStorage.removeItem('token')
     },
 
     setAuthHeader(request) {

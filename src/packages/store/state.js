@@ -7,4 +7,6 @@ export const state = {
         history: null,
     },
 
+    user: null
+
 }

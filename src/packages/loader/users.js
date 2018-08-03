@@ -3,19 +3,36 @@ import store from '@packages/store'
 
 export default {
 
-    login(credentials) {
-        return new Promise((resolve, reject) => {
-            Vue.api.users
-                .login(credentials)
-                .then((data) => {
-                    Vue.auth.token(data.token)
-                    resolve(data)
-                })
-        })
+    user() {
+        return new Promise(
+            (resolve, reject) => {
+                Vue.api.users.user().then(
+                    (data) => {
+                        store.commit('SET_USER', data)
+                        resolve(data)
+                    }
+                ).catch(
+                    (error) => {
+                        Vue.auth.logout()
+                        reject(error)
+                    }
+                )
+            }
+        )
     },
 
-    logout() {
-        localStorage.removeItem('token')
+    login(credentials) {
+        return new Promise(
+            (resolve, reject) => {
+                Vue.api.users.login(credentials).then(
+                    (data) => {
+                        Vue.auth.token(data.token)
+                        this.user()
+                        resolve(data)
+                    }
+                )
+            }
+        )
     },
 
 }
