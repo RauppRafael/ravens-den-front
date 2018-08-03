@@ -7,7 +7,7 @@ export default {
     matchmaking(filters) {
         return new Promise(
             (resolve, reject) => {
-                Vue.http.get(this.URL_MATCHMAKING, filters)
+                Vue.http.get(this.URL_MATCHMAKING, {params: filters})
                     .then(res => resolve(res))
                     .catch(error => reject(error))
             }

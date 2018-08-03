@@ -1,25 +1,39 @@
 import Vue from 'vue'
 import store from '@packages/store'
+import _ from 'lodash'
 
 export default {
 
     matchmaking(filters) {
+        filters = _.transform(filters,
+            (result, value, key) => {
+                if (!value)
+                    return
+
+                switch (key) {
+                    case 'gameModes':
+                        result['gameModeIds'] = _.map(value, 'id')
+                        break
+                    case 'servers':
+                        result['serverIds'] = _.map(value, 'id')
+                        break
+                    default:
+                        result[key] = value
+                        break
+                }
+            }
+        )
+
+        // console.log(filters)
+
         return new Promise((resolve, reject) => {
             Vue.api.matches
                 .matchmaking(filters)
-                .then((tickets) => {
-                    store.commit('SET_MATCHMAKING_DATA', tickets)
-                    resolve(tickets)
+                .then((matches) => {
+                    store.commit('SET_MATCHMAKING_DATA', matches)
+                    resolve(matches)
                 })
         })
     },
-
-    // ASYNC / AWAIT
-    //
-    // async matchmaking(filters) {
-    //     let data = await Vue.api.matches.matchmaking(filters)
-    //     store.commit('SET_MATCHMAKING', data)
-    //     return data
-    // },
 
 }

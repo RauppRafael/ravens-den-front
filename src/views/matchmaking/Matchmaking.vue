@@ -1,6 +1,6 @@
 <template>
     <div class="matchmaking">
-        <app-matchmaking-sidebar></app-matchmaking-sidebar>
+        <app-matchmaking-sidebar @load="load"></app-matchmaking-sidebar>
 
         <div class="matches container">
 
@@ -16,9 +16,8 @@
 
             <template v-for="(match, index) in matches">
 
-                <app-match
-                    :data-match="match"
-                    :data-animation-delay="(index / 10) + 's'"></app-match>
+                <app-match :data-match="match"
+                           :data-animation-delay="(index / 10) + 's'"></app-match>
 
             </template>
         </div>
@@ -37,17 +36,13 @@
 
         computed: {
             matches() {
-                return this.$store.state.matchmaking
-            },
-
-            filters() {
-                return {}
+                return this.$store.state.matchmaking.matches
             },
         },
 
         methods: {
             load() {
-                this.$loader.matches.matchmaking(this.filters)
+                this.$loader.matches.matchmaking(this.$store.state.matchmaking.filters)
             },
         },
 

@@ -32,7 +32,7 @@
 
             this.$loader.users.login({email: 'raupperino@gmail.com', password: '200516'}).then(
                 () => {
-                    this.$loader.matches.matchmaking({})
+                    // this.$loader.matches.matchmaking({})
                 }
             )
 

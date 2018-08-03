@@ -10,7 +10,7 @@
     .container {
         flex: 0 0 $container-width;
         padding: 1rem;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
         height: $main-content-height;
         width: $container-width;

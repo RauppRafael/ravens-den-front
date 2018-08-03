@@ -5,12 +5,14 @@
                 <h5>Sort By</h5>
                 <vue-multiselect :options="configs.sortBy.options"
                                  :allow-empty="false"
-                                 v-model="filters.sortBy"></vue-multiselect>
+                                 :value="filters.sortBy"
+                                 @input="(val) => commit('sortBy', val, true)"></vue-multiselect>
             </li>
 
             <li>
                 <h5>Servers</h5>
-                <server-select v-model="filters.servers"></server-select>
+                <server-select :value="filters.servers"
+                               @input="(val) => commit('servers', val, true)"></server-select>
             </li>
 
             <li>
@@ -18,23 +20,26 @@
                 <vue-date-range i18n="EN"
                                 format="MMM/DD/YY"
                                 :captions="configs.dateRange.captions"
-                                @selected="log"></vue-date-range>
+                                @selected="setDateRange"></vue-date-range>
             </li>
 
             <li>
                 <h5>Entry fee</h5>
-                <entry-fee-select v-model="filters.buyIn"></entry-fee-select>
+                <entry-fee-select :value="filters.entries"
+                                  @input="(val) => commit('entries', val, true)"></entry-fee-select>
             </li>
 
             <li>
                 <h5>Mode</h5>
-                <game-mode-select v-model="filters.gameMode"></game-mode-select>
+                <game-mode-select :value="filters.gameModes"
+                                  @input="(val) => commit('gameModes', val, true)"></game-mode-select>
             </li>
 
             <li>
                 <h5>Signed Players</h5>
                 <vue-multiselect :options="configs.players.options"
-                                 v-model="filters.players"></vue-multiselect>
+                                 :value="filters.players"
+                                 @input="(val) => commit('players', val, true)"></vue-multiselect>
             </li>
         </ul>
     </div>
@@ -83,31 +88,37 @@
                             '90+',
                         ]
                     }
-
                 },
+            }
+        },
 
-                filters: {
-                    sortBy: 'DATE',
-                    dateRange: {
-                        start: null,
-                        end:
-                            null
-                    },
-                    buyIn: null,
-                    players: null,
-                    servers: null,
-                    gameMode: null,
-                }
+        computed: {
+            filters() {
+                return this.$store.state.matchmaking.filters
             }
         },
 
         methods: {
+            commit(key, value, load) {
+                if (value.length === 0)
+                    value = null
 
-            log(event) {
-                console.log(event)
+                this.$store.commit('SET_MATCHMAKING_FILTER', {key, value})
+
+                if (load)
+                    this.load()
+            },
+
+            setDateRange(range) {
+                this.commit('dateRangeStart', range.start, false)
+                this.commit('dateRangeEnd', range.end, false)
+                this.load()
+            },
+
+            load() {
+                this.$emit('load')
             }
-        }
-
+        },
     }
 </script>
 
