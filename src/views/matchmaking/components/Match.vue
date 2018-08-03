@@ -3,8 +3,8 @@
 
         <div class="content">
             <div class="date-time flex-column flex-center">
-                <h4 class="date">TODAY</h4>
-                <h3 class="time">08:00</h3>
+                <h4 class="date">{{date}}</h4>
+                <h3 class="time">{{time}}</h3>
             </div>
 
             <div>
@@ -12,12 +12,12 @@
                 <div class="flex-center">
                     <div>
                         <h6 class="text-right">Current</h6>
-                        <h4>83</h4>
+                        <h4>{{currentPlayers}}</h4>
                     </div>
                     <h3 class="slash">/</h3>
                     <div>
                         <h6>Max</h6>
-                        <h4>100</h4>
+                        <h4>{{maxPlayers}}</h4>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="flex-center">
                     <div>
                         <h6 class="text-right">&nbsp;</h6>
-                        <h4 class="text-right">$0.10</h4>
+                        <h4 class="text-right">${{match.entry}}</h4>
                     </div>
                 </div>
             </div>
@@ -38,20 +38,19 @@
                 <div class="flex-center">
                     <div>
                         <h6 class="text-right">Current</h6>
-                        <h4>$8.30</h4>
+                        <h4>${{currentPrize}}</h4>
                     </div>
                     <h3 class="slash">/</h3>
                     <div>
                         <h6>Max</h6>
-                        <h4>$10.00</h4>
+                        <h4>${{maxPrize}}</h4>
                     </div>
                 </div>
             </div>
 
             <div class="buttons">
                 <button class="btn btn-primary"><h5>RULES</h5></button>
-                <button class="btn btn-danger"><h5>LEAVE</h5></button>
-                <!--<button class="btn"><h5>JOIN</h5></button>-->
+                <button class="btn btn-primary"><h5>JOIN</h5></button>
             </div>
         </div>
 
@@ -59,12 +58,54 @@
 </template>
 
 <script>
+    import moment from 'moment'
+
     export default {
         props: {
+            dataMatch: {
+                type: Object,
+                required: true,
+            },
             dataAnimationDelay: {
                 type: String,
                 default: '0s',
-            }
+            },
+        },
+
+        computed: {
+            match() {
+                return this.dataMatch
+            },
+
+            when() {
+                return moment(this.match.when)
+            },
+
+            date() {
+                const sameWeek = this.when.isSame(moment(), 'week');
+                const format = sameWeek ? 'dddd' : 'MMM, D'
+                return this.when.format(format)
+            },
+
+            time() {
+                return this.when.format('HH:mm')
+            },
+
+            currentPlayers() {
+                return this.match.__meta__.playerCount
+            },
+
+            maxPlayers() {
+                return this.match.gameMode.maxPlayers
+            },
+
+            maxPrize() {
+                return this.match.entry * this.maxPlayers
+            },
+
+            currentPrize() {
+                return this.match.entry * this.currentPlayers
+            },
         }
     }
 </script>

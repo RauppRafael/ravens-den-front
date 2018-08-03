@@ -4,8 +4,7 @@
 
         <div class="matches container">
 
-            <template>
-                <!--if no matches found-->
+            <template v-if="!matches">
                 <h4 class="text-muted mb-2">Sorry, we couldn't find you a match.</h4>
 
                 <h5 class="text-muted mb-3">
@@ -38,8 +37,23 @@
 
         computed: {
             matches() {
-                return ['', '', '', '', '', '', '', '',]
-            }
+                return this.$store.state.matchmaking
+            },
+
+            filters() {
+                return {}
+            },
+        },
+
+        methods: {
+            load() {
+                this.$loader.matches.matchmaking(this.filters)
+            },
+        },
+
+        mounted() {
+            if (!this.matches)
+                this.load()
         }
     }
 </script>
