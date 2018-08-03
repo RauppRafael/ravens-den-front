@@ -80,6 +80,7 @@ module.exports = {
             '@views': path.resolve('./src/views'),
             '@assets': path.resolve('./src/assets'),
             '@mixins': path.resolve('./src/packages/mixins'),
+            '@packages': path.resolve('./src/packages'),
             '@components': path.resolve('./src/components'),
 
             '@scss': path.resolve('./src/assets/scss'),
