@@ -3,16 +3,16 @@
         <router-link to="/" class="logo"><h3>RAVEN'S DEN</h3></router-link>
 
         <div class="links">
-            <router-link to="/matchmaking" class="link" v-if="logged">Matchmaking</router-link>
+            <router-link to="/matchmaking" class="link" v-if="user">Matchmaking</router-link>
 
-            <router-link to="/matches" class="link" v-if="logged">Matches</router-link>
+            <router-link to="/matches" class="link" v-if="user">Matches</router-link>
 
-            <span v-if="!logged"></span>
+            <span v-if="!user"></span>
 
             <router-link to="/help" class="link">Help</router-link>
 
-            <router-link to="/profile" v-if="logged">
-                <vue-dropdown text="WRX Raupp | $ 172,95" class="dead">
+            <router-link to="/profile" v-if="user">
+                <vue-dropdown :text="userText" class="dead">
                     <vue-dropdown-item to="/profile">Profile</vue-dropdown-item>
                     <vue-dropdown-item to="/profile/deposit">Deposit</vue-dropdown-item>
                     <vue-dropdown-item to="/profile/withdraw">Withdraw</vue-dropdown-item>
@@ -21,12 +21,12 @@
             </router-link>
         </div>
 
-        <a href="javascript:void(0)" class="action flex-column" @click="logout()" v-if="logged">
+        <a href="javascript:void(0)" class="action flex-column" @click="logout()" v-if="user">
             <i class="fas fa-sign-out-alt text-xl"></i>
             <span class="text-xs text-bold">Log Out</span>
         </a>
 
-        <router-link to="/login" class="action flex-column" v-if="!logged">
+        <router-link to="/login" class="action flex-column" v-if="!user">
             <i class="fas fa-sign-in-alt text-xl"></i>
             <span class="text-xs text-bold">Log In</span>
         </router-link>
@@ -44,8 +44,19 @@
         },
 
         computed: {
-            logged() {
-                return !!this.$store.state.user
+            user() {
+                return this.$store.state.user
+            },
+
+            balance() {
+                return this.$store.state.balance || 0
+            },
+
+            userText() {
+                if (!this.user)
+                    return ''
+
+                return this.user.username + ' | $ ' + this.balance
             }
         },
 

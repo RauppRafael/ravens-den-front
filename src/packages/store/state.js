@@ -2,6 +2,8 @@ export const state = {
 
     user: null,
 
+    balance: null,
+
     matchmaking: {
         matches: null,
 

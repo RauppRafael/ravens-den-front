@@ -1,6 +1,7 @@
 <template>
-    <vue-multiselect :options="fees"
+    <vue-multiselect :options="entries"
                      :multiple="dataMultiple"
+                     :custom-label="label"
                      placeholder="Select entry fee"
                      v-model="val"></vue-multiselect>
 </template>
@@ -22,18 +23,15 @@
         },
 
         computed: {
-            fees() {
-                return [
-                    '$ 0.01',
-                    '$ 0.05',
-                    '$ 0.10',
-                    '$ 0.25',
-                    '$ 0.50',
-                    '$ 1.00',
-                    '$ 5.00',
-                    '$ 10.00',
-                ]
+            entries() {
+                return this.$store.state.entries
             },
+        },
+
+        methods: {
+            label(option){
+                return '$' + option
+            }
         },
 
         mixins: [vModel],

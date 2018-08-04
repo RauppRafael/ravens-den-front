@@ -2,7 +2,7 @@
     <vue-multiselect :options="servers"
                      :multiple="dataMultiple"
                      :custom-label="label"
-                     track-by="short"
+                     track-by="region"
                      placeholder="Select server"
                      v-model="val"></vue-multiselect>
 </template>
@@ -25,17 +25,13 @@
 
         computed: {
             servers() {
-                return [
-                    {short: 'BR', name: 'Brazil'},
-                    {short: 'US-W', name: 'United States - West'},
-                    {short: 'US-E', name: 'United States - East'},
-                ]
+                return this.$store.state.servers
             },
         },
 
         methods: {
             label(option) {
-                return `${option.short} - ${option.name}`
+                return option.region
             }
         },
 

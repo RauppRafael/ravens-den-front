@@ -26,4 +26,9 @@ export const mutations = {
     LOGOUT: (state, payload) => {
         state.user = null
     },
+
+    SET_BALANCE: (state, payload) => {
+        state.balance = payload
+    },
+
 }

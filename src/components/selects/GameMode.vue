@@ -1,6 +1,8 @@
 <template>
     <vue-multiselect :options="gameModes"
                      :multiple="dataMultiple"
+                     :custom-label="label"
+                     track-by="name"
                      v-model="val"
                      placeholder="Select game mode"></vue-multiselect>
 </template>
@@ -23,15 +25,14 @@
 
         computed: {
             gameModes() {
-                return [
-                    'Playground 1v1',
-                    'Playground 2v2',
-                    'Playground Free For All',
-                    'Solo',
-                    'Duo',
-                    'Squad',
-                ]
+                return this.$store.state.gameModes
             },
+        },
+
+        methods: {
+            label(option) {
+                return option.name
+            }
         },
 
         mixins: [vModel],

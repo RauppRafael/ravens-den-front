@@ -95,7 +95,17 @@
         computed: {
             filters() {
                 return this.$store.state.matchmaking.filters
-            }
+            },
+
+
+
+            gameModes() {
+                return this.$store.state.gameModes
+            },
+
+            entries() {
+                return this.$store.state.entries
+            },
         },
 
         methods: {

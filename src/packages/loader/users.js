@@ -35,5 +35,22 @@ export default {
         )
     },
 
+    balance() {
+        return new Promise(
+            (resolve, reject) => {
+                Vue.api.users.balance().then(
+                    (data) => {
+                        store.commit('SET_BALANCE', data)
+                        resolve(data)
+                    }
+                ).catch(
+                    (error) => {
+                        reject(error)
+                    }
+                )
+            }
+        )
+    }
+
 }
 

@@ -13,7 +13,8 @@ export default {
 
                 return request;
             },
-            (error) => {}
+            (error) => {
+            }
         );
 
         Vue.prototype.$auth = Vue.auth = this
@@ -26,6 +27,30 @@ export default {
         localStorage.setItem('token', token)
 
         return this
+    },
+
+    login(credentials) {
+        if (this.token())
+            this.loadUserData()
+
+        if (!credentials)
+            return
+
+        Vue.loader.users.login(credentials).then(
+            () => {
+                this.loadUserData()
+            }
+        )
+    },
+
+    loadUserData() {
+        Vue.loader.users.user()
+        Vue.loader.users.balance()
+
+        // TODO load matchmaking
+        // TODO load matches
+        // TODO load setting
+        // TODO load profile
     },
 
     logout() {

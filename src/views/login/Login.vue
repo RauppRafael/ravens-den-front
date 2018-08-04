@@ -28,7 +28,10 @@
                            v-form-control="'password'">
                 </div>
 
-                <button class="btn btn-primary">Log In</button>
+                <div class="footer">
+                    <router-link to="#" class="text-sm">Forgot you password?</router-link>
+                    <button class="btn btn-primary">Log In</button>
+                </div>
 
             </form>
         </div>
@@ -64,11 +67,7 @@
                     password: this.password
                 }
 
-                this.$loader.users.login(credentials).then(
-                    () => {
-                        this.$loader.users.user()
-                    }
-                )
+                this.$auth.login(credentials)
             }
         },
 
@@ -97,8 +96,14 @@
                 flex-direction: column;
                 align-items: flex-end;
 
-                .form-group {
+                > * {
                     width: 100%;
+                }
+
+                .footer {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
                 }
             }
         }
