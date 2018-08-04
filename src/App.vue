@@ -30,11 +30,11 @@
             if (this.$auth.token())
                 this.$loader.users.user()
 
-            this.$loader.users.login({email: 'raupperino@gmail.com', password: '200516'}).then(
-                () => {
+            // this.$loader.users.login({email: 'raupperino@gmail.com', password: '200516'}).then(
+            //     () => {
                     // this.$loader.matches.matchmaking({})
-                }
-            )
+                // }
+            // )
 
         }
     }

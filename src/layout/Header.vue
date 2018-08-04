@@ -1,15 +1,15 @@
 <template>
     <header class="header">
-        <h3>Fortnite</h3>
+        <router-link to="/" class="logo"><h3>Fortnite</h3></router-link>
 
         <div class="links">
-            <router-link to="/matchmaking" class="link">Matchmaking</router-link>
+            <router-link to="/matchmaking" class="link" v-if="logged">Matchmaking</router-link>
 
-            <router-link to="/matches" class="link">Matches</router-link>
+            <router-link to="/matches" class="link" v-if="logged">Matches</router-link>
 
             <router-link to="/help" class="link">Help</router-link>
 
-            <router-link to="/profile" class="">
+            <router-link to="/profile" v-if="logged">
                 <vue-dropdown text="WRX Raupp | $ 172,95" class="dead">
                     <vue-dropdown-item to="/profile">Profile</vue-dropdown-item>
                     <vue-dropdown-item to="/profile/deposit">Deposit</vue-dropdown-item>
@@ -17,6 +17,8 @@
                     <vue-dropdown-item to="/profile/settings">Settings</vue-dropdown-item>
                 </vue-dropdown>
             </router-link>
+
+            <router-link to="/login" class="link" v-if="!logged">Log In</router-link>
         </div>
 
         <router-link to="#" class="action flex-column">
@@ -35,6 +37,12 @@
             VueDropdown,
             VueDropdownItem,
         },
+
+        computed: {
+            logged() {
+                return !!this.$auth.token()
+            }
+        }
     }
 </script>
 
@@ -74,6 +82,10 @@
                 display: flex;
                 align-items: center;
             }
+        }
+
+        .logo {
+            color: $white;
         }
 
         .link {

@@ -1,20 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// Tabs
+import Home from '@views/home/Home'
 import Matchmaking from '@views/matchmaking/Matchmaking'
 import Help from '@views/help/Help'
+import LogIn from '@views/login/Login'
 
 // Matches
 import Matches from '@views/matches/Matches'
 import MatchesList from '@views/matches/components/List'
 import CreateMatch from '@views/matches/components/Create'
 
-// Profile
-import ProfileIndex from '@views/profile'
-import Profile from '@views/profile/Profile'
-import Deposit from '@views/profile/Deposit'
-import Withdraw from '@views/profile/Withdraw'
-import Settings from '@views/profile/Settings'
+// User
+import User from '@views/user'
+import Profile from '@views/user/Profile'
+import Deposit from '@views/user/Deposit'
+import Withdraw from '@views/user/Withdraw'
+import Settings from '@views/user/Settings'
 
 Vue.use(VueRouter)
 
@@ -25,6 +28,16 @@ const router = new VueRouter({
         linkActiveClass: 'active',
 
         routes: [
+            {
+                path: '/',
+                component: Home,
+                name: 'home'
+            },
+            {
+                path: '/login',
+                component: LogIn,
+                name: 'login'
+            },
             {
                 path: '/matchmaking',
                 component: Matchmaking,
@@ -55,7 +68,7 @@ const router = new VueRouter({
             },
             {
                 path: '/profile',
-                component: ProfileIndex,
+                component: User,
                 children: [
                     {
                         path: '/',

@@ -2,8 +2,10 @@
     height: $main-content-height;
     background-color: $lighter-grey;
     overflow: hidden;
+    width: 100vw;
+    display: flex;
 
-    > * {
+    > .container, .sidebar {
         display: flex;
     }
 
