@@ -21,10 +21,10 @@
             <router-link to="/login" class="link" v-if="!logged">Log In</router-link>
         </div>
 
-        <router-link to="#" class="action flex-column">
+        <a href="javascript:void(0)" class="action flex-column" @click="logout()">
             <i class="fas fa-sign-out-alt text-xl"></i>
             <span class="text-xs text-bold">Sign Out</span>
-        </router-link>
+        </a>
     </header>
 </template>
 
@@ -40,9 +40,15 @@
 
         computed: {
             logged() {
-                return !!this.$auth.token()
+                return !!this.$store.state.user
             }
-        }
+        },
+
+        methods: {
+            logout(){
+                this.$auth.logout()
+            }
+        },
     }
 </script>
 

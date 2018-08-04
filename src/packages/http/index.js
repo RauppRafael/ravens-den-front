@@ -4,8 +4,12 @@ import axios from 'axios'
 export default {
 
     install (Vue, options) {
+
         // Add request interceptor
         axios.interceptors.request.use(
+            // TODO set loading animation
+            // NProgress.start()
+
             function (config) {
                 config.url = 'http://localhost:3333/api' + config.url
                 return config;

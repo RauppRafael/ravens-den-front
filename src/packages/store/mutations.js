@@ -9,5 +9,9 @@ export const mutations = {
 
     SET_USER: (state, payload) => {
         state.user = payload
-    }
+    },
+
+    LOGOUT: (state, payload) => {
+        state.user = null
+    },
 }

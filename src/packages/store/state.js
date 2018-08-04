@@ -1,5 +1,7 @@
 export const state = {
 
+    user: null,
+
     matchmaking: {
         matches: null,
 
@@ -15,10 +17,13 @@ export const state = {
     },
 
     matches: {
+        // TODO use getter instead
         upcoming: null,
         history: null,
     },
 
-    user: null
+    servers: null,
+
+    gameModes: null,
 
 }

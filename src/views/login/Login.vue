@@ -27,7 +27,7 @@
                        v-form-control="'password'">
             </div>
 
-            <button class="btn btn-primary">Log In</button>
+            <button class="btn btn-primary" @click="login">Log In</button>
 
         </div>
     </div>
@@ -47,6 +47,29 @@
             }
         },
 
+        computed: {
+            user() {
+                return this.$store.state.user
+            }
+        },
+
+        methods: {
+            login() {
+                this.$loader.users.login({email: this.email, password: this.password}).then(
+                    () => {
+                        this.$loader.users.user()
+                    }
+                )
+            }
+        },
+
+        watch: {
+            user(val) {
+                if(val)
+                    console.log('Logged in. Now redirect')
+            }
+        },
+
         mixins: [Form]
     }
 </script>
@@ -57,5 +80,15 @@
         width: 50rem;
         align-self: center;
         margin: auto;
+
+        .box-body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            .form-group {
+                width: 100%;
+            }
+        }
     }
 </style>

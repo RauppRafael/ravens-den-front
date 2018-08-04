@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from '@packages/store'
 
 export default {
 
@@ -7,9 +8,6 @@ export default {
         // Add a request interceptor
         Vue.http.interceptors.request.use(
             (request) => {
-                // TODO set loading animation
-                // NProgress.start()
-
                 if (this.token() && !request.headers.Authorization)
                     this.setAuthHeader(request)
 
@@ -32,14 +30,10 @@ export default {
 
     logout() {
         localStorage.removeItem('token')
+        store.commit('LOGOUT')
     },
 
     setAuthHeader(request) {
         request.headers.Authorization = 'Bearer ' + this.token()
-
-        // TODO check if it is needed to pass auth as query param
-        // if (!request.params)
-        //     request.params = {}
-        // request.params.token = this._getToken()
     },
 }
