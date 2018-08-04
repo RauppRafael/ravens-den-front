@@ -5,7 +5,7 @@
             <h3>Create Match</h3>
         </div>
 
-        <div class="box-body">
+        <form @submit="create" class="box-body">
 
             <div class="flex">
 
@@ -16,36 +16,28 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Date</label>
-                        <vue-date-picker v-model="match.date" @input="log"></vue-date-picker>
+                        <label>When</label>
+                        <vue-date-picker v-model="match.when"></vue-date-picker>
                     </div>
-
-                    <!--<div class="form-group">-->
-                        <!--<input type="text"-->
-                               <!--class="form-control"-->
-                               <!--v-model="name"-->
-                               <!--v-form-control="'name'">-->
-                        <!--<label for="" class="label" :class="{filled: filledLabel('name')}">DISPLAY NAME *</label>-->
-                    <!--</div>-->
                 </div>
 
                 <div class="half">
                     <div class="form-group">
                         <label>Server</label>
-                        <server-select v-model="match.serve" :data-multiple="false"></server-select>
+                        <server-select v-model="match.server" :data-multiple="false"></server-select>
                     </div>
 
                     <div class="form-group">
-                        <label>Entry Fee</label>
-                        <entry-fee-select v-model="match.entryFee" :data-multiple="false"></entry-fee-select>
+                        <label>Entry</label>
+                        <entry-fee-select v-model="match.entry" :data-multiple="false"></entry-fee-select>
                     </div>
                 </div>
 
             </div>
 
-            <button class="btn btn-primary">CREATE</button>
+            <button class="btn btn-primary" :disabled="!valid">CREATE</button>
 
-        </div>
+        </form>
 
     </div>
 </template>
@@ -70,18 +62,41 @@
                 name: null,
                 test: null,
                 match: {
-                    serve: null,
-                    entryFee: null,
+                    server: null,
+                    entry: null,
                     gameMode: null,
-                    date: null,
+                    when: null,
                 },
             }
         },
 
+        computed: {
+            valid() {
+                return this.match.server && this.match.entry && this.match.gameMode && this.match.when
+            }
+        },
+
         methods: {
-            log(e) {
-                console.log(e)
-            },
+            create(event) {
+                event.preventDefault()
+
+                if (!this.valid)
+                    return
+
+                const data = {
+                    serverId: this.match.server.id,
+                    entry: this.match.entry,
+                    gameModeId: this.match.gameMode.id,
+                    when: this.match.when,
+                }
+
+                this.$api.matches.create(data).then(
+                    (match) => {
+                        this.$auth.loadUserData()
+                        this.$router.push('/matches#' + match.id)
+                    }
+                )
+            }
         },
 
         mixins: [Form]

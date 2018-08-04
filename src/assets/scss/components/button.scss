@@ -1,6 +1,6 @@
 .btn {
     padding: .5rem 2rem;
-    transition: box-shadow .4s, transform .4s;
+    transition: box-shadow .4s, transform .4s, color .4s;
     box-shadow: 1px 1px 3px $grey;
 
     &:hover {
@@ -14,7 +14,6 @@
     }
 
     &.dead {
-        padding: 0;
         box-shadow: none;
 
         &:hover {

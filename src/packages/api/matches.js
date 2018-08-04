@@ -37,7 +37,13 @@ export default {
     },
 
     create(data) {
-        //
+        return new Promise(
+            (resolve, reject) => {
+                Vue.http.post(this.URL_MATCHES, data)
+                    .then(res => resolve(res))
+                    .catch(error => reject(error))
+            }
+        )
     },
 
     update(id, data) {
