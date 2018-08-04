@@ -1,11 +1,13 @@
 <template>
     <header class="header">
-        <router-link to="/" class="logo"><h3>Fortnite</h3></router-link>
+        <router-link to="/" class="logo"><h3>RAVEN'S DEN</h3></router-link>
 
         <div class="links">
             <router-link to="/matchmaking" class="link" v-if="logged">Matchmaking</router-link>
 
             <router-link to="/matches" class="link" v-if="logged">Matches</router-link>
+
+            <span v-if="!logged"></span>
 
             <router-link to="/help" class="link">Help</router-link>
 
@@ -17,14 +19,17 @@
                     <vue-dropdown-item to="/profile/settings">Settings</vue-dropdown-item>
                 </vue-dropdown>
             </router-link>
-
-            <router-link to="/login" class="link" v-if="!logged">Log In</router-link>
         </div>
 
-        <a href="javascript:void(0)" class="action flex-column" @click="logout()">
+        <a href="javascript:void(0)" class="action flex-column" @click="logout()" v-if="logged">
             <i class="fas fa-sign-out-alt text-xl"></i>
-            <span class="text-xs text-bold">Sign Out</span>
+            <span class="text-xs text-bold">Log Out</span>
         </a>
+
+        <router-link to="/login" class="action flex-column" v-if="!logged">
+            <i class="fas fa-sign-in-alt text-xl"></i>
+            <span class="text-xs text-bold">Log In</span>
+        </router-link>
     </header>
 </template>
 
@@ -45,10 +50,10 @@
         },
 
         methods: {
-            logout(){
+            logout() {
                 this.$auth.logout()
                 this.$router.push('/login')
-            }
+            },
         },
     }
 </script>

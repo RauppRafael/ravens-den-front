@@ -18,6 +18,7 @@ body, input, textarea, select, button {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    white-space: nowrap;
     font-family: BurbankBigCondensedBlack, sans-serif;
     transform: translateY(5%);
 }
