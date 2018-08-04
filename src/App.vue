@@ -25,17 +25,22 @@
 
         mounted() {
             if (!this.$auth.token())
-                console.log('redirect back')
+                this.$router.push('/login')
+
+            this.$loader.entries.all()
+            this.$loader.gameModes.all()
+            this.$loader.servers.all()
 
             if (this.$auth.token())
-                this.$loader.users.user()
-
-            // this.$loader.users.login({email: 'raupperino@gmail.com', password: '200516'}).then(
-            //     () => {
-                    // this.$loader.matches.matchmaking({})
-                // }
-            // )
-
+                this.$loader.users.user().then(
+                    () => {
+                        // TODO load matchmaking
+                        // TODO load matches
+                        // TODO load setting
+                        // TODO load profile
+                        // TODO load balance
+                    }
+                )
         }
     }
 </script>

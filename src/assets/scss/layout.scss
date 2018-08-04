@@ -5,7 +5,7 @@
     width: 100vw;
     display: flex;
 
-    > .container, .sidebar {
+    > .container, > .sidebar {
         display: flex;
     }
 

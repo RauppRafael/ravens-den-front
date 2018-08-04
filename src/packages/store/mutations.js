@@ -7,6 +7,18 @@ export const mutations = {
         state.matchmaking.filters[payload.key] = payload.value
     },
 
+    SET_ENTRIES: (state, payload) => {
+        state.entries = payload
+    },
+
+    SET_GAME_MODES: (state, payload) => {
+        state.gameModes = payload
+    },
+
+    SET_SERVERS: (state, payload) => {
+        state.servers = payload
+    },
+
     SET_USER: (state, payload) => {
         state.user = payload
     },

@@ -1,34 +1,36 @@
 <template>
     <div class="box">
         <div class="box-body">
+            <form @submit="login">
 
-            <div class="form-group">
-                <label for="email"
-                       class="label"
-                       :class="{filled: filledLabel('email')}">
-                    Email
-                </label>
-                <input class="form-control"
-                       id="email"
-                       v-model="email"
-                       v-form-control="'email'">
-            </div>
+                <div class="form-group">
+                    <label for="email"
+                           class="label"
+                           :class="{filled: filledLabel('email')}">
+                        Email
+                    </label>
+                    <input class="form-control"
+                           id="email"
+                           v-model="email"
+                           v-form-control="'email'">
+                </div>
 
-            <div class="form-group">
-                <label for="password"
-                       class="label"
-                       :class="{filled: filledLabel('password')}">
-                    Password
-                </label>
-                <input class="form-control"
-                       id="password"
-                       type="password"
-                       v-model="password"
-                       v-form-control="'password'">
-            </div>
+                <div class="form-group">
+                    <label for="password"
+                           class="label"
+                           :class="{filled: filledLabel('password')}">
+                        Password
+                    </label>
+                    <input class="form-control"
+                           id="password"
+                           type="password"
+                           v-model="password"
+                           v-form-control="'password'">
+                </div>
 
-            <button class="btn btn-primary" @click="login">Log In</button>
+                <button class="btn btn-primary">Log In</button>
 
+            </form>
         </div>
     </div>
 </template>
@@ -54,8 +56,15 @@
         },
 
         methods: {
-            login() {
-                this.$loader.users.login({email: this.email, password: this.password}).then(
+            login(event) {
+                event.preventDefault()
+
+                const credentials = {
+                    email: this.email,
+                    password: this.password
+                }
+
+                this.$loader.users.login(credentials).then(
                     () => {
                         this.$loader.users.user()
                     }
@@ -65,8 +74,8 @@
 
         watch: {
             user(val) {
-                if(val)
-                    console.log('Logged in. Now redirect')
+                if (val)
+                    this.$router.push('/matchmaking')
             }
         },
 
@@ -82,12 +91,15 @@
         margin: auto;
 
         .box-body {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
 
-            .form-group {
-                width: 100%;
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                .form-group {
+                    width: 100%;
+                }
             }
         }
     }

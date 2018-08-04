@@ -22,8 +22,10 @@ export const state = {
         history: null,
     },
 
-    servers: null,
+    entries: null,
 
     gameModes: null,
+
+    servers: null,
 
 }

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@packages/store'
 
 // Tabs
 import Home from '@views/home/Home'
@@ -29,64 +30,77 @@ const router = new VueRouter({
 
         routes: [
             {
+                name: 'home',
                 path: '/',
                 component: Home,
-                name: 'home'
+                meta: {requiresAuth: false}
             },
             {
+                name: 'login',
                 path: '/login',
                 component: LogIn,
-                name: 'login'
+                meta: {requiresAuth: false}
             },
             {
+                name: 'matchmaking',
                 path: '/matchmaking',
                 component: Matchmaking,
-                name: 'matchmaking'
+                meta: {requiresAuth: true}
             },
             {
+                name: 'Help',
                 path: '/help',
                 component: Help,
-                name: 'help'
+                meta: {requiresAuth: false},
             },
             {
                 path: '/matches',
                 component: Matches,
                 children: [
                     {
+                        name: 'Upcoming Matches',
                         path: '/',
                         component: MatchesList,
                     },
                     {
+                        name: 'Match History',
+                        path: '/history',
+                        component: MatchesList,
+                    },
+                    {
+                        name: 'Create Match',
                         path: 'create',
                         component: CreateMatch,
                     }
-                ]
-            },
-            {
-                path: '/matches/history',
-                component: Matches,
+                ],
+                meta: {requiresAuth: true},
             },
             {
                 path: '/profile',
                 component: User,
                 children: [
                     {
+                        name: 'Profile',
                         path: '/',
                         component: Profile,
                     },
                     {
+                        name: 'Withdraw',
                         path: 'withdraw',
                         component: Withdraw,
                     },
                     {
+                        name: 'Deposit',
                         path: 'deposit',
                         component: Deposit,
                     },
                     {
+                        name: 'Settings',
                         path: 'settings',
                         component: Settings,
                     },
                 ],
+                meta: {requiresAuth: true},
             },
             {
                 path: '*',
@@ -95,5 +109,12 @@ const router = new VueRouter({
         ]
     }
 )
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth && !store.state.user)
+        next('/login')
+
+    next()
+})
 
 export default router
