@@ -24,7 +24,7 @@
 
         computed: {
             entries() {
-                return this.$store.state.entries
+                return this.$store.state.entries || []
             },
         },
 

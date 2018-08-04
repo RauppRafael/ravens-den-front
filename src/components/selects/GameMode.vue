@@ -25,7 +25,7 @@
 
         computed: {
             gameModes() {
-                return this.$store.state.gameModes
+                return this.$store.state.gameModes || []
             },
         },
 

@@ -25,7 +25,7 @@
 
         computed: {
             servers() {
-                return this.$store.state.servers
+                return this.$store.state.servers || []
             },
         },
 

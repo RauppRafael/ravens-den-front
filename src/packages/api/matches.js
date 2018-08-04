@@ -4,7 +4,7 @@ export default {
 
     URL_MATCHES: '/matches',
     URL_JOIN_MATCH: '/matches/:matchId/join',
-    URL_MATCHMAKING: '/matchmaking',
+    URL_MATCHMAKING: '/matches/matchmaking',
 
     all() {
         return new Promise(
