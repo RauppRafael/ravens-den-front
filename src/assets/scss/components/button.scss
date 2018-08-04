@@ -30,6 +30,7 @@
     &:disabled {
         @extend .dead;
         background-color: $grey !important;
+        cursor: not-allowed;
     }
 
     &.btn-primary {
