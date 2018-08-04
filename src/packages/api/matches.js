@@ -36,21 +36,15 @@ export default {
         )
     },
 
-    create(cid, data) {
+    create(data) {
         //
     },
 
-    update(cid, id, data) {
+    update(id, data) {
         //
     },
 
-    delete(cid, id) {
+    delete(id) {
         //
     },
-
-    // ASYNC / AWAIT
-    //
-    // async matchmaking(filters) {
-    //     return await Vue.http.get(this.URL_MATCHMAKING, filters)
-    // }
 }
