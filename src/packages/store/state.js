@@ -18,11 +18,8 @@ export const state = {
         },
     },
 
-    matches: {
-        // TODO use getter instead
-        upcoming: null,
-        history: null,
-    },
+    // TODO use getter here to split next and history
+    matches: null,
 
     entries: null,
 

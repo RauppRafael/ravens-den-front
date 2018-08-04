@@ -28,6 +28,11 @@
         }
     }
 
+    &:disabled {
+        @extend .dead;
+        background-color: $grey !important;
+    }
+
     &.btn-primary {
         color: $white;
         background-color: $light-blue;

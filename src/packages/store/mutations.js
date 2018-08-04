@@ -7,6 +7,10 @@ export const mutations = {
         state.matchmaking.filters[payload.key] = payload.value
     },
 
+    SET_MATCHES: (state, payload) => {
+        state.matches = payload
+    },
+
     SET_ENTRIES: (state, payload) => {
         state.entries = payload
     },

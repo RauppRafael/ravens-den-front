@@ -3,10 +3,7 @@
         <matches-sidebar></matches-sidebar>
 
         <div class="container">
-            <!--<div class="box">-->
             <router-view></router-view>
-                <!--<matches-list></matches-list>-->
-            <!--</div>-->
         </div>
 
     </div>
@@ -26,4 +23,8 @@
 
 <style lang="scss" scoped>
     @import "animations";
+
+    .matches {
+        display: flex;
+    }
 </style>

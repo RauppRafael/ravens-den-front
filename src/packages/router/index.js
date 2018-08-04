@@ -64,7 +64,7 @@ const router = new VueRouter({
                     },
                     {
                         name: 'Match History',
-                        path: '/history',
+                        path: 'history',
                         component: MatchesList,
                     },
                     {

@@ -24,4 +24,8 @@
 
 <style lang="scss" scoped>
     @import "animations";
+
+    .profile {
+        display: flex;
+    }
 </style>

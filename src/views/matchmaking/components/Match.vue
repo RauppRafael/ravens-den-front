@@ -50,7 +50,14 @@
 
             <div class="buttons">
                 <button class="btn btn-primary"><h5>RULES</h5></button>
-                <button class="btn btn-primary"><h5>JOIN</h5></button>
+
+                <button class="btn btn-primary" @click="join" v-if="canJoin">
+                    <h5>JOIN</h5>
+                </button>
+
+                <router-link tag="button" to="/profile/deposit" class="btn btn-primary" v-else>
+                    <h5>ADD FUNDS</h5>
+                </router-link>
             </div>
         </div>
 
@@ -106,7 +113,23 @@
             currentPrize() {
                 return this.match.entry * this.currentPlayers
             },
-        }
+
+            canJoin() {
+                return this.$store.state.balance > this.match.entry
+            },
+        },
+
+        methods: {
+            join() {
+                const matchId = this.match.id
+                this.$api.matches.join(matchId).then(
+                    () => {
+                        this.$auth.loadUserData()
+                        this.$router.push('/matches#' + matchId)
+                    }
+                )
+            }
+        },
     }
 </script>
 
@@ -186,7 +209,8 @@
                 .btn {
                     @include rotate;
 
-                    padding: 1rem 5rem;
+                    width: 15rem;
+                    padding: 1rem;
                     text-shadow: $shadow;
                     letter-spacing: .1rem;
 

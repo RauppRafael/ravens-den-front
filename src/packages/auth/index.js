@@ -46,10 +46,10 @@ export default {
     loadUserData() {
         Vue.loader.users.user()
         Vue.loader.users.balance()
+        Vue.loader.matches.all()
+        Vue.loader.matches.matchmaking()
 
-        // TODO load matchmaking
-        // TODO load matches
-        // TODO load setting
+        // TODO load settings
         // TODO load profile
     },
 

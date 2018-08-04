@@ -24,16 +24,29 @@ export default {
             }
         )
 
-        // console.log(filters)
+        return new Promise(
+            (resolve, reject) => {
+                Vue.api.matches.matchmaking(filters).then(
+                    (matches) => {
+                        store.commit('SET_MATCHMAKING_DATA', matches)
+                        resolve(matches)
+                    }
+                )
+            }
+        )
+    },
 
-        return new Promise((resolve, reject) => {
-            Vue.api.matches
-                .matchmaking(filters)
-                .then((matches) => {
-                    store.commit('SET_MATCHMAKING_DATA', matches)
-                    resolve(matches)
-                })
-        })
+    all() {
+        return new Promise(
+            (resolve, reject) => {
+                Vue.api.matches.all().then(
+                    (matches) => {
+                        store.commit('SET_MATCHES', matches)
+                        resolve(matches)
+                    }
+                )
+            }
+        )
     },
 
 }

@@ -1,9 +1,11 @@
 <template>
     <div class="box">
         <ul class="matches-list">
-            <app-match></app-match>
-            <app-match></app-match>
-            <app-match></app-match>
+
+            <template v-for="match in matches">
+                <app-match :dataMatch="match"></app-match>
+            </template>
+
         </ul>
     </div>
 </template>
@@ -14,6 +16,12 @@
     export default {
         components: {
             AppMatch,
+        },
+
+        computed: {
+            matches() {
+                return this.$store.state.matches
+            }
         }
     }
 </script>
