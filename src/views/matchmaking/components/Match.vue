@@ -67,6 +67,7 @@
 
 <script>
     import moment from 'moment'
+    import EventBus from '@packages/event-bus'
 
     export default {
         props: {
@@ -127,6 +128,7 @@
                     () => {
                         this.$auth.loadUserData()
                         this.$router.push('/matches#' + matchId)
+                        EventBus.$emit('show-snackbar', {message: 'Match joined'})
                     }
                 )
             }

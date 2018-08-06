@@ -14,6 +14,10 @@ import Mixins from './packages/mixins'
 import VTooltip from 'v-tooltip'
 import VeeValidate from 'vee-validate'
 
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+Vue.use(Vuetify)
+
 Vue.use(Http)
 Vue.use(Auth)
 Vue.use(Api)
