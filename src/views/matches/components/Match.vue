@@ -29,6 +29,14 @@
                                v-tooltip="'Copy'"></i>
                         </li>
 
+                        <li class="flex-center mt-1" v-if="showInvite">
+                            <i class="fa fa-caret-right ml-1"></i>
+                            <h6 class="player-name ml-0-5 text-muted">
+                                Invite a friend
+                            </h6>
+                            <i class="far fa-copy text-muted pointer ml-0-5" v-tooltip="'Copy'"></i>
+                        </li>
+
                     </ul>
                 </div>
 
@@ -104,11 +112,34 @@
             },
 
             userWithTeam() {
-                return _.find(this.match.players, (player) => {
+                return _.find(this.playersInMatch,
+                    (player) => {
                         return player.id === this.user.id
                     }
-                );
-            }
+                )
+            },
+
+            playersInMatch() {
+                return this.match.players
+            },
+
+            playersInTeam() {
+                return _.filter(this.playersInMatch,
+                    (player) => {
+                        return player.pivot.team === this.userWithTeam.pivot.team
+                    }
+                )
+            },
+
+            showInvite() {
+                let canJoinTeam = this.playersInTeam && this.playersInTeam.length < this.match.gameMode.teamSize
+                let canJoinMatch = this.match.__meta__.playerCount < this.match.gameMode.maxPlayers
+                return canJoinMatch && canJoinTeam
+            },
+
+            inviteUrl() {
+                return 'example.com'
+            },
         },
 
         methods: {

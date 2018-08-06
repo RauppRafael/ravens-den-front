@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div :class="{box:showTable}">
         <ul class="matches-list">
 
             <template v-for="match in matches">
@@ -21,6 +21,10 @@
         computed: {
             matches() {
                 return this.$store.state.matches
+            },
+
+            showTable() {
+                return this.matches && this.matches.length > 0
             }
         }
     }
