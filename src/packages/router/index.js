@@ -6,7 +6,8 @@ import store from '@packages/store'
 import Home from '@views/home/Home'
 import Matchmaking from '@views/matchmaking/Matchmaking'
 import Help from '@views/help/Help'
-import LogIn from '@views/login/Login'
+import Login from '@views/auth/Login'
+import Register from '@views/auth/Register'
 
 // Matches
 import Matches from '@views/matches/Matches'
@@ -30,19 +31,25 @@ const router = new VueRouter({
 
         routes: [
             {
-                name: 'home',
+                name: 'Home',
                 path: '/',
                 component: Home,
                 meta: {requiresAuth: false}
             },
             {
-                name: 'login',
+                name: 'Login',
                 path: '/login',
-                component: LogIn,
+                component: Login,
                 meta: {requiresAuth: false}
             },
             {
-                name: 'matchmaking',
+                name: 'Register',
+                path: '/register',
+                component: Register,
+                meta: {requiresAuth: false}
+            },
+            {
+                name: 'Matchmaking',
                 path: '/matchmaking',
                 component: Matchmaking,
                 meta: {requiresAuth: true}

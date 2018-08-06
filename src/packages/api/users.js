@@ -26,7 +26,7 @@ export default {
         )
     },
 
-    register(data) {
+    create(data) {
         return new Promise(
             (resolve, reject) => {
                 Vue.http.post(this.URL_USERS, data)

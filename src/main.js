@@ -12,6 +12,7 @@ import Loader from './packages/loader'
 //
 import Mixins from './packages/mixins'
 import VTooltip from 'v-tooltip'
+import VeeValidate from 'vee-validate'
 
 Vue.use(Http)
 Vue.use(Auth)
@@ -20,6 +21,7 @@ Vue.use(Loader)
 
 Vue.use(Mixins)
 Vue.use(VTooltip)
+Vue.use(VeeValidate)
 
 new Vue({
     el: '#app',

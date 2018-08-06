@@ -8,11 +8,12 @@
             </div>
 
             <div>
-                <h5>Players</h5>
+                <h5 class="mb-0-5">Players</h5>
+
                 <div class="flex-center">
                     <div>
                         <h6 class="text-right">Current</h6>
-                        <h4>{{currentPlayers}}</h4>
+                        <h4 class="text-right">{{currentPlayers}}</h4>
                     </div>
                     <h3 class="slash">/</h3>
                     <div>
@@ -23,7 +24,7 @@
             </div>
 
             <div>
-                <h5>Entry</h5>
+                <h5 class="mb-0-5">Entry</h5>
 
                 <div class="flex-center">
                     <div>
@@ -34,7 +35,7 @@
             </div>
 
             <div>
-                <h5>Prize</h5>
+                <h5 class="mb-0-5">Prize</h5>
                 <div class="flex-center">
                     <div>
                         <h6 class="text-right">Current</h6>
