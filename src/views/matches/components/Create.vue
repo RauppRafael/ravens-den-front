@@ -16,8 +16,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label>When</label>
-                        <vue-date-picker v-model="match.when"></vue-date-picker>
+                        <!--<label>When</label>-->
+                        <v-text-field v-model="match.when"
+                                      label="When"
+                                      @focus="setFocus('date')"
+                                      @blur="setFocus(null)"
+                                      required></v-text-field>
+                        <!--<vue-date-picker v-model="match.when"></vue-date-picker>-->
+                        <v-date-picker v-model="match.when" color="blue" v-show="focus === 'date'"></v-date-picker>
                     </div>
                 </div>
 
@@ -61,6 +67,7 @@
             return {
                 name: null,
                 test: null,
+                focus: null,
                 match: {
                     server: null,
                     entry: null,
@@ -96,6 +103,10 @@
                         this.$router.push('/matches#' + match.id)
                     }
                 )
+            },
+
+            setFocus(field) {
+                this.focus = field
             }
         },
 

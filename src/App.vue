@@ -1,14 +1,16 @@
 <template>
     <div id="app">
-        <app-header></app-header>
+        <v-app>
+            <app-header></app-header>
 
-        <app-snackbar></app-snackbar>
+            <app-snackbar></app-snackbar>
 
-        <div class="main">
-            <transition mode="out-in">
-                <router-view></router-view>
-            </transition>
-        </div>
+            <div class="main">
+                <transition mode="out-in">
+                    <router-view></router-view>
+                </transition>
+            </div>
+        </v-app>
     </div>
 </template>
 

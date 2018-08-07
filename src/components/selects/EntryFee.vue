@@ -1,9 +1,18 @@
 <template>
-    <vue-multiselect :options="entries"
-                     :multiple="dataMultiple"
-                     :custom-label="label"
-                     placeholder="Select entry fee"
-                     v-model="val"></vue-multiselect>
+    <!--<vue-multiselect :options="entries"-->
+                     <!--:multiple="dataMultiple"-->
+                     <!--:custom-label="label"-->
+                     <!--placeholder="Select entry fee"-->
+                     <!--v-model="val"></vue-multiselect>-->
+
+    <v-select
+        :items="entries"
+        :multiple="dataMultiple"
+        :label="dataMultiple ? 'Entry Fees' : 'Entry Fee'"
+        :small-chips="true"
+        item-text="entry"
+        item-value="id"
+        return-object></v-select>
 </template>
 
 <script>
@@ -26,12 +35,6 @@
             entries() {
                 return this.$store.state.entries || []
             },
-        },
-
-        methods: {
-            label(option){
-                return '$' + option
-            }
         },
 
         mixins: [vModel],

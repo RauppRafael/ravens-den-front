@@ -2,45 +2,34 @@
     <div class="sidebar">
         <ul>
             <li>
-                <h5>Sort By</h5>
-                <vue-multiselect :options="configs.sortBy.options"
-                                 :allow-empty="false"
-                                 :value="filters.sortBy"
-                                 @input="(val) => commit('sortBy', val, true)"></vue-multiselect>
+                <sort-by-select></sort-by-select>
             </li>
 
             <li>
-                <h5>Servers</h5>
                 <server-select :value="filters.servers"
                                @input="(val) => commit('servers', val, true)"></server-select>
             </li>
 
             <li>
-                <h5>Date</h5>
-                <vue-date-range i18n="EN"
-                                format="MMM/DD/YY"
-                                :captions="configs.dateRange.captions"
-                                @selected="setDateRange"></vue-date-range>
-            </li>
-
-            <li>
-                <h5>Entry fee</h5>
                 <entry-fee-select :value="filters.entries"
                                   @input="(val) => commit('entries', val, true)"></entry-fee-select>
             </li>
 
             <li>
-                <h5>Mode</h5>
                 <game-mode-select :value="filters.gameModes"
                                   @input="(val) => commit('gameModes', val, true)"></game-mode-select>
             </li>
 
             <li>
-                <h5>Signed Players</h5>
-                <vue-multiselect :options="configs.players.options"
-                                 :value="filters.players"
-                                 @input="(val) => commit('players', val, true)"></vue-multiselect>
+                <v-date-picker :full-width="true" :no-title="true"></v-date-picker>
             </li>
+
+            <!--<li>-->
+                <!--<h5>Signed Players</h5>-->
+                <!--<vue-multiselect :options="configs.players.options"-->
+                                 <!--:value="filters.players"-->
+                                 <!--@input="(val) => commit('players', val, true)"></vue-multiselect>-->
+            <!--</li>-->
         </ul>
     </div>
 </template>
@@ -51,6 +40,7 @@
     import ServerSelect from '@components/selects/Server'
     import EntryFeeSelect from '@components/selects/EntryFee'
     import GameModeSelect from '@components/selects/GameMode'
+    import SortBySelect from '@components/selects/SortBy'
 
     export default {
         components: {
@@ -59,18 +49,13 @@
             ServerSelect,
             EntryFeeSelect,
             GameModeSelect,
+            SortBySelect,
         },
 
         data() {
             return {
                 configs: {
-                    sortBy: {
-                        options: [
-                            'DATE',
-                            'BUY-IN',
-                            'PRIZE',
-                        ],
-                    },
+
 
                     dateRange: {
                         captions: {
@@ -140,7 +125,7 @@
         li {
             margin-bottom: 2rem;
 
-            > *:first-child {
+            > h5:first-child {
                 @include text-shadow;
                 color: $white;
                 margin-bottom: .5rem;

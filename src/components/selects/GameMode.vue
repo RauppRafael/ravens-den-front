@@ -1,10 +1,13 @@
 <template>
-    <vue-multiselect :options="gameModes"
-                     :multiple="dataMultiple"
-                     :custom-label="label"
-                     track-by="name"
-                     v-model="val"
-                     placeholder="Select game mode"></vue-multiselect>
+    <v-select
+        :items="gameModes"
+        :multiple="dataMultiple"
+        :label="dataMultiple ? 'Game Modes' : 'Game Mode'"
+        :small-chips="true"
+        max-height="350"
+        item-text="name"
+        item-value="id"
+        return-object></v-select>
 </template>
 
 <script>
@@ -29,16 +32,9 @@
             },
         },
 
-        methods: {
-            label(option) {
-                return option.name
-            }
-        },
-
         mixins: [vModel],
     }
 </script>
 
 <style scoped>
-
 </style>

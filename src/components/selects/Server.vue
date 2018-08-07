@@ -1,21 +1,19 @@
 <template>
-    <vue-multiselect :options="servers"
-                     :multiple="dataMultiple"
-                     :custom-label="label"
-                     track-by="region"
-                     placeholder="Select server"
-                     v-model="val"></vue-multiselect>
+    <v-select
+        :items="servers"
+        :multiple="dataMultiple"
+        :label="dataMultiple ? 'Servers' : 'Server'"
+        :small-chips="true"
+        max-height="350"
+        item-text="region"
+        item-value="id"
+        return-object></v-select>
 </template>
 
 <script>
-    import VueMultiselect from 'vue-multiselect'
     import vModel from '@mixins/v-model'
 
     export default {
-        components: {
-            VueMultiselect,
-        },
-
         props: {
             dataMultiple: {
                 type: Boolean,
@@ -27,12 +25,6 @@
             servers() {
                 return this.$store.state.servers || []
             },
-        },
-
-        methods: {
-            label(option) {
-                return option.region
-            }
         },
 
         mixins: [vModel],

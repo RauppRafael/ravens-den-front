@@ -23,7 +23,7 @@
 
         data() {
             return {
-                snackbar: true,
+                snackbar: false,
                 message: null,
                 mode: null,
                 x: 'right',
