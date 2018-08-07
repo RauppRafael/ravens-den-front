@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
+import env from '@env'
 
 export default {
 
@@ -11,7 +12,7 @@ export default {
             // NProgress.start()
 
             function (config) {
-                config.url = 'http://localhost:3333/api' + config.url
+                config.url = env.API_URL + config.url
                 return config;
             },
             function (error) {
