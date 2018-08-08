@@ -5,14 +5,14 @@
         .sidebar {
             @include sidebar-out;
         }
-        .container {
+        .app-container {
             opacity: 0;
         }
     }
     &.v-enter-active {
         @include animation-enter;
 
-        .sidebar, .container {
+        .sidebar, .app-container {
             @include animation-enter;
         }
     }
@@ -20,7 +20,7 @@
         .sidebar {
             @include sidebar-in;
         }
-        .container {
+        .app-container {
             opacity: 1;
         }
     }
@@ -29,14 +29,14 @@
         .sidebar {
             @include sidebar-in;
         }
-        .container {
+        .app-container {
             opacity: 1;
         }
     }
     &.v-leave-active {
         @include animation-leave;
 
-        .sidebar, .container {
+        .sidebar, .app-container {
             @include animation-leave;
         }
     }
@@ -44,7 +44,7 @@
         .sidebar {
             @include sidebar-out;
         }
-        .container {
+        .app-container {
             opacity: 0;
         }
     }

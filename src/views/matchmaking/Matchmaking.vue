@@ -2,7 +2,7 @@
     <div class="matchmaking">
         <app-matchmaking-sidebar @load="load"></app-matchmaking-sidebar>
 
-        <div class="matches container">
+        <div class="matches app-container">
 
             <template v-if="!matches">
                 <h4 class="text-muted mb-2">Sorry, we couldn't find you a match.</h4>
@@ -63,7 +63,7 @@
         justify-content: space-between;
         background-color: lighten($light-grey, 70%);
 
-        .container {
+        .app-container {
             padding: 4rem 8rem;
 
             .link {

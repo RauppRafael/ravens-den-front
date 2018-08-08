@@ -3,7 +3,7 @@
         <div class="sidebar">
 
         </div>
-        <div class="container">
+        <div class="app-container">
             <div class="box">
                 <div class="box-header">
                     <h2>Help</h2>

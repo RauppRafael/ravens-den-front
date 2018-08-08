@@ -4,7 +4,7 @@
             <app-sidebar></app-sidebar>
         </transition>
 
-        <div class="container">
+        <div class="app-container">
             <transition mode="out-in">
                 <router-view></router-view>
             </transition>

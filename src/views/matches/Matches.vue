@@ -2,7 +2,7 @@
     <div class="matches">
         <matches-sidebar></matches-sidebar>
 
-        <div class="container">
+        <div class="app-container">
             <router-view></router-view>
         </div>
 

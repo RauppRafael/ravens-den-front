@@ -68,16 +68,13 @@ module.exports = {
                     name: '[name].[ext]?[hash]'
                 }
             },
-            // {
-            //   test: /\.(png|gif|jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-            // },
         ]
     },
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
 
-            '@env': path.resolve('./env.js'),
+            '@env': path.resolve('./.env.js'),
             '@views': path.resolve('./src/views'),
             '@assets': path.resolve('./src/assets'),
             '@mixins': path.resolve('./src/packages/mixins'),

@@ -5,11 +5,11 @@
     width: 100vw;
     display: flex;
 
-    > .container, > .sidebar {
+    > .app-container, > .sidebar {
         display: flex;
     }
 
-    .container {
+    .app-container {
         flex: 0 0 $container-width;
         padding: 1rem;
         overflow-y: auto;
