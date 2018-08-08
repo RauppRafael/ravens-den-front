@@ -56,6 +56,9 @@
                 if (!this.user)
                     return ''
 
+                if (!this.user.username)
+                    return '$ ' + this.balance
+
                 return this.user.username + ' | $ ' + this.balance
             }
         },

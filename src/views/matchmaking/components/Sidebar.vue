@@ -20,9 +20,9 @@
                                   @input="(val) => commit('gameModes', val, true)"></game-mode-select>
             </li>
 
-            <li>
-                <v-date-picker :full-width="true" :no-title="true"></v-date-picker>
-            </li>
+            <!--<li>-->
+                <!--<v-date-picker :full-width="true" :no-title="true"></v-date-picker>-->
+            <!--</li>-->
 
             <!--<li>-->
                 <!--<h5>Signed Players</h5>-->
@@ -124,12 +124,6 @@
     .sidebar {
         li {
             margin-bottom: 2rem;
-
-            > h5:first-child {
-                @include text-shadow;
-                color: $white;
-                margin-bottom: .5rem;
-            }
         }
     }
 </style>
