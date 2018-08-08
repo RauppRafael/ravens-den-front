@@ -4,6 +4,7 @@
         :multiple="dataMultiple"
         :label="dataMultiple ? 'Servers' : 'Server'"
         :small-chips="true"
+        :deletable-chips="dataMultiple"
         max-height="350"
         item-text="region"
         item-value="id"

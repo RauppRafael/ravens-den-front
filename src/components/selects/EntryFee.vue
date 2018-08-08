@@ -1,15 +1,10 @@
 <template>
-    <!--<vue-multiselect :options="entries"-->
-                     <!--:multiple="dataMultiple"-->
-                     <!--:custom-label="label"-->
-                     <!--placeholder="Select entry fee"-->
-                     <!--v-model="val"></vue-multiselect>-->
-
     <v-select
         :items="entries"
         :multiple="dataMultiple"
         :label="dataMultiple ? 'Entry Fees' : 'Entry Fee'"
         :small-chips="true"
+        :deletable-chips="dataMultiple"
         item-text="entry"
         item-value="id"
         return-object></v-select>

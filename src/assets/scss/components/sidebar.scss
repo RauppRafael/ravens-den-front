@@ -8,6 +8,10 @@
     padding: 2rem 2.5rem;
     transition: all 1s;
     box-shadow: $shadow;
+
+    .v-chip {
+        background: $white;
+    }
 }
 
 nav.sidebar {

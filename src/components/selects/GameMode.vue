@@ -4,6 +4,7 @@
         :multiple="dataMultiple"
         :label="dataMultiple ? 'Game Modes' : 'Game Mode'"
         :small-chips="true"
+        :deletable-chips="dataMultiple"
         max-height="350"
         item-text="name"
         item-value="id"
