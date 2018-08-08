@@ -4,28 +4,22 @@
             <form @submit="login">
 
                 <div class="form-group">
-                    <label for="email"
-                           class="label"
-                           :class="{filled: filledLabel('email')}">
-                        Email
-                    </label>
-                    <input class="form-control"
-                           id="email"
-                           v-model="email"
-                           v-form-control="'email'">
+                    <v-text-field label="Email"
+                                  name="email"
+                                  v-model="email"
+                                  v-validate="'required|email'"
+                                  :rules="[errors.first('email') || true]"
+                                  required></v-text-field>
                 </div>
 
                 <div class="form-group">
-                    <label for="password"
-                           class="label"
-                           :class="{filled: filledLabel('password')}">
-                        Password
-                    </label>
-                    <input class="form-control"
-                           id="password"
-                           type="password"
-                           v-model="password"
-                           v-form-control="'password'">
+                    <v-text-field name="password"
+                                  label="Password"
+                                  type="password"
+                                  v-model="password"
+                                  v-validate="'required'"
+                                  :rules="[errors.first('password') || true]"
+                                  required></v-text-field>
                 </div>
 
                 <div class="footer">
@@ -44,8 +38,6 @@
 </template>
 
 <script>
-    import Form from '@mixins/form'
-
     export default {
         components: {},
 
@@ -60,7 +52,7 @@
         computed: {
             user() {
                 return this.$store.state.user
-            }
+            },
         },
 
         methods: {
@@ -82,8 +74,6 @@
                     this.$router.push('/matchmaking')
             }
         },
-
-        mixins: [Form]
     }
 </script>
 

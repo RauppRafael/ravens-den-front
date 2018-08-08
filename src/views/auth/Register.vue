@@ -1,48 +1,31 @@
 <template>
     <div class="box">
         <div class="box-body">
-            <form @submit="submit" v-if="this.form === 0">
+            <v-form @submit="submit" v-if="this.form === 0" v-model="valid">
 
-                <div class="form-group">
-                    <label for="email"
-                           class="label"
-                           :class="{filled: filledLabel('email')}">
-                        Email
-                    </label>
-                    <input class="form-control"
-                           id="email"
-                           name="email"
-                           v-model="email"
-                           v-form-control="'email'"
-                           v-validate="'required|email'">
-                    <span class="text-danger text-sm">{{ errors.first('email') }}</span>
-                </div>
+                <v-text-field label="Email"
+                              name="email"
+                              v-model="email"
+                              v-validate="'required|email'"
+                              :rules="[errors.first('email') || true]"
+                              required></v-text-field>
 
-                <div class="form-group">
-                    <label for="password"
-                           class="label"
-                           :class="{filled: filledLabel('password')}">
-                        Password
-                    </label>
-                    <input class="form-control"
-                           id="password"
-                           type="password"
-                           v-model="password"
-                           v-form-control="'password'">
-                </div>
+                <v-text-field name="password"
+                              label="Password"
+                              type="password"
+                              v-model="password"
+                              v-validate="'required|min:6|confirmed:confirm'"
+                              :rules="[errors.first('password') || true]"
+                              required></v-text-field>
 
-                <div class="form-group">
-                    <label for="password-confirmation"
-                           class="label"
-                           :class="{filled: filledLabel('passwordConfirmation')}">
-                        Confirm Password
-                    </label>
-                    <input class="form-control"
-                           id="password-confirmation"
-                           type="password"
-                           v-model="passwordConfirmation"
-                           v-form-control="'passwordConfirmation'">
-                </div>
+                <v-text-field name="confirm"
+                              label="Password Confirmation"
+                              type="password"
+                              ref="confirm"
+                              v-model="confirm"
+                              v-validate="'required|min:6'"
+                              :rules="[errors.first('confirm') || true]"
+                              required></v-text-field>
 
                 <div class="footer">
                     <div>
@@ -54,41 +37,30 @@
                     <button class="btn btn-primary">Register</button>
                 </div>
 
-            </form>
+            </v-form>
 
             <form @submit="submit" v-if="this.form === 1">
 
-                <input type="text" hidden>
+                <v-text-field v-model="username"
+                              label="Epic Account Username"></v-text-field>
 
-                <div class="form-group">
-                    <label for="epic"
-                           class="label"
-                           :class="{filled: filledLabel('username')}">
-                        Epic Account Username
-                    </label>
-                    <input class="form-control"
-                           id="epic"
-                           v-model="username"
-                           v-form-control="'username'">
-                </div>
+                <!--<div class="footer">-->
+                <!--<div>-->
+                <!--<a href="javascript:void(0)" class="text-sm" @click="form = 0">-->
+                <!--<i class="fa fa-chevron-left" style="display: inline"></i>-->
+                <!--Back-->
+                <!--</a>-->
+                <!--</div>-->
 
-                <div class="footer">
-                    <div>
-                        <a href="javascript:void(0)" class="text-sm" @click="form = 0">
-                            <i class="fa fa-chevron-left" style="display: inline"></i>
-                            Back
-                        </a>
-                    </div>
-
-                    <button class="btn btn-primary">Register</button>
-                </div>
+                <!--<button class="btn btn-primary">Register</button>-->
+                <!--</div>-->
             </form>
         </div>
     </div>
 </template>
 
 <script>
-    import Form from '@mixins/form'
+    import {Validator} from 'vee-validate'
 
     export default {
         components: {},
@@ -96,28 +68,33 @@
         data() {
             return {
                 form: 0,
+
                 email: null,
                 password: null,
-                passwordConfirmation: null,
+                confirm: null,
                 username: null,
+
+                valid: false,
             }
         },
 
         computed: {
             user() {
                 return this.$store.state.user
-            }
+            },
         },
 
         methods: {
             submit(event) {
                 event.preventDefault()
 
-                if (!this.email || !this.password)
-                    return
+                // todo use vee validete
 
-                if (this.password !== this.passwordConfirmation)
-                    return
+                // if (!this.email || !this.password)
+                //     return
+                //
+                // if (this.password !== this.confirm)
+                //     return
 
                 if (this.form === 0) {
                     this.form = 1
@@ -143,7 +120,6 @@
             }
         },
 
-        mixins: [Form]
     }
 </script>
 
