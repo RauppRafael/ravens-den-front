@@ -36,6 +36,16 @@ export default {
         )
     },
 
+    update(id, data) {
+        return new Promise(
+            (resolve, reject) => {
+                Vue.http.put(this.URL_USERS + '/' + id, data)
+                    .then(res => resolve(res))
+                    .catch(error => reject(error))
+            }
+        )
+    },
+
     balance() {
         return new Promise(
             (resolve, reject) => {

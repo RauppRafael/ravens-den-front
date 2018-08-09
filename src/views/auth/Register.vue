@@ -34,7 +34,7 @@
                         <router-link to="#" class="text-sm">Forgot you password?</router-link>
                     </div>
 
-                    <button class="btn btn-primary" :disabled="errors.any()">Register</button>
+                    <v-btn color="primary" type="submit" :disabled="errors.any()">Register</v-btn>
                 </div>
 
             </v-form>
