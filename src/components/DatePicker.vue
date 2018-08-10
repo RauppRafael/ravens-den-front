@@ -1,7 +1,7 @@
 <template>
-    <v-menu ref="menu2"
+    <v-menu ref="menu"
             :close-on-content-click="false"
-            v-model="menu2"
+            v-model="menu"
             :return-value.sync="date"
             lazy
             transition="scale-transition"
@@ -9,13 +9,12 @@
             full-width
             min-width="290px">
 
-        <v-text-field
-            slot="activator"
-            v-model="date"
-            label="Date"
-            readonly></v-text-field>
+        <v-select slot="activator"
+                  content-class="no-display"
+                  v-model="date"
+                  label="Date"></v-select>
 
-        <v-date-picker v-model="date" @input="$refs.menu2.save(date)"></v-date-picker>
+        <v-date-picker v-model="date" @input="$refs.menu.save(date)"></v-date-picker>
 
     </v-menu>
 </template>
@@ -24,13 +23,15 @@
     export default {
         data() {
             return {
-                menu2: false,
+                menu: false,
                 date: null,
             }
         }
     }
 </script>
 
-<style scoped>
-
+<style>
+    .no-display {
+        display: none !important;
+    }
 </style>
