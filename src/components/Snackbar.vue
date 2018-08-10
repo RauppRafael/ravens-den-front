@@ -5,12 +5,17 @@
         :right="x === 'right'"
         :bottom="y === 'bottom'"
         :left="x === 'left'"
-        :multi-line="mode === 'multi-line'"
-        :vertical="mode === 'vertical'">
+        :color="mode === 'error' ? 'red' : null">
 
         {{ message }}
 
-        <v-btn color="pink" flat @click="snackbar = false">Close</v-btn>
+        <v-btn :color="mode === 'error' ? 'white' : 'pink'"
+               @click="snackbar = false"
+               flat>
+
+            Close
+            
+        </v-btn>
 
     </v-snackbar>
 </template>
@@ -34,7 +39,16 @@
         mounted() {
             EventBus.$on('show-snackbar',
                 (payload) => {
+                    this.mode = null
                     this.message = payload.message
+                    this.snackbar = true
+                }
+            )
+
+            EventBus.$on('show-error',
+                (message) => {
+                    this.mode = 'error'
+                    this.message = message
                     this.snackbar = true
                 }
             )

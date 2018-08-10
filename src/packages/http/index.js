@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import env from '@env'
+import EventBus from '@packages/event-bus'
 
 export default {
 
@@ -23,7 +24,11 @@ export default {
                 return response.data
             },
             (error) => {
-                // TODO add error to state
+                
+                _.forEach(error.response.data, (error) => {
+                    EventBus.$emit('show-error', error.message)
+                })
+
                 return Promise.reject(error)
             }
         )
