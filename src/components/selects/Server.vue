@@ -2,7 +2,7 @@
     <v-select
         :items="servers"
         :multiple="dataMultiple"
-        :label="dataMultiple ? 'Servers' : 'Server'"
+        :label="dataMultiple ? 'Regions' : 'Region'"
         :small-chips="true"
         :deletable-chips="dataMultiple"
         max-height="350"

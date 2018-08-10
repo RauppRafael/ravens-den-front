@@ -29,7 +29,7 @@
                         <router-link to="#" class="text-sm">Forgot you password?</router-link>
                     </div>
 
-                    <button class="btn btn-primary">Log In</button>
+                    <v-btn type="submit" color="primary">Log In</v-btn>
                 </div>
 
             </form>

@@ -11,10 +11,10 @@ export default {
         axios.interceptors.request.use(
             (request) => {
                 request.url = env.API_URL + request.url
-                return request;
+                return request
             },
             (error) => {
-                return Promise.reject(error);
+                return Promise.reject(error)
             }
         )
 
@@ -24,10 +24,12 @@ export default {
                 return response.data
             },
             (error) => {
-                
-                _.forEach(error.response.data, (error) => {
-                    EventBus.$emit('show-error', error.message)
-                })
+
+                _.forEach(error.response.data,
+                    (error) => {
+                        EventBus.$emit('show-error', error.message)
+                    }
+                )
 
                 return Promise.reject(error)
             }
