@@ -7,39 +7,24 @@
 
         <form @submit="create" class="box-body">
 
-            <div class="flex">
+            <v-layout>
 
-                <div class="half">
-                    <div class="form-group">
-                        <label>Game Mode</label>
-                        <game-mode-select v-model="match.gameMode" :data-multiple="false"></game-mode-select>
-                    </div>
-
-                    <div class="form-group">
-                        <!--<label>When</label>-->
-                        <v-text-field v-model="match.when"
-                                      label="When"
-                                      @focus="setFocus('date')"
-                                      @blur="setFocus(null)"
-                                      required></v-text-field>
-                        <!--<vue-date-picker v-model="match.when"></vue-date-picker>-->
-                        <v-date-picker v-model="match.when" color="blue" v-show="focus === 'date'"></v-date-picker>
-                    </div>
+                <div style="width: 50%;" md6>
+                    <vue-date-picker></vue-date-picker>
+                    <vue-time-picker></vue-time-picker>
                 </div>
 
-                <div class="half">
+                <div style="width: 50%;" md6>
                     <div class="form-group">
-                        <label>Server</label>
                         <server-select v-model="match.server" :data-multiple="false"></server-select>
                     </div>
 
                     <div class="form-group">
-                        <label>Entry</label>
                         <entry-fee-select v-model="match.entry" :data-multiple="false"></entry-fee-select>
                     </div>
                 </div>
 
-            </div>
+            </v-layout>
 
             <button class="btn btn-primary" :disabled="!valid">CREATE</button>
 
@@ -53,6 +38,7 @@
     import EntryFeeSelect from '@components/selects/EntryFee'
     import GameModeSelect from '@components/selects/GameMode'
     import VueDatePicker from '@components/DatePicker'
+    import VueTimePicker from '@components/TimePicker'
     import Form from '@mixins/form'
 
     export default {
@@ -60,7 +46,8 @@
             ServerSelect,
             EntryFeeSelect,
             GameModeSelect,
-            VueDatePicker
+            VueDatePicker,
+            VueTimePicker,
         },
 
         data() {
@@ -68,11 +55,13 @@
                 name: null,
                 test: null,
                 focus: null,
+                menu2: false,
                 match: {
                     server: null,
                     entry: null,
                     gameMode: null,
-                    when: null,
+                    date: null,
+                    time: null,
                 },
             }
         },
