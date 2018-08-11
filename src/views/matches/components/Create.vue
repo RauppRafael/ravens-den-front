@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box create-match">
 
         <div class="box-header">
             <h3>Create Match</h3>
@@ -9,24 +9,33 @@
 
             <v-layout>
 
-                <div style="width: 50%;" md6>
-                    <vue-date-picker></vue-date-picker>
-                    <vue-time-picker></vue-time-picker>
-                </div>
-
-                <div style="width: 50%;" md6>
+                <div class="half">
                     <div class="form-group">
-                        <server-select v-model="match.server" :data-multiple="false"></server-select>
+                        <server-select v-model="server" :data-multiple="false"></server-select>
                     </div>
 
                     <div class="form-group">
-                        <entry-fee-select v-model="match.entry" :data-multiple="false"></entry-fee-select>
+                        <game-mode-select v-model="gameMode" :data-multiple="false"></game-mode-select>
+                    </div>
+
+                    <div class="form-group">
+                        <entry-fee-select v-model="entry" :data-multiple="false"></entry-fee-select>
+                    </div>
+                </div>
+
+                <div class="half">
+                    <vue-date-picker v-model="date"></vue-date-picker>
+
+                    <vue-time-picker v-model="time"></vue-time-picker>
+
+                    <div class="btn-wrapper">
+                        <v-btn type="submit" color="primary">CREATE</v-btn>
                     </div>
                 </div>
 
             </v-layout>
 
-            <button class="btn btn-primary" :disabled="!valid">CREATE</button>
+
 
         </form>
 
@@ -52,23 +61,23 @@
 
         data() {
             return {
-                name: null,
-                test: null,
-                focus: null,
-                menu2: false,
-                match: {
+
                     server: null,
                     entry: null,
                     gameMode: null,
                     date: null,
                     time: null,
-                },
+
             }
         },
 
         computed: {
             valid() {
-                return this.match.server && this.match.entry && this.match.gameMode && this.match.when
+                return this.server &&
+                    this.entry &&
+                    this.gameMode &&
+                    this.date &&
+                    this.time
             }
         },
 
@@ -76,14 +85,16 @@
             create(event) {
                 event.preventDefault()
 
-                if (!this.valid)
-                    return
+                // if (!this.valid)
+                //     return
+
+                console.log(this.server)
 
                 const data = {
-                    serverId: this.match.server.id,
-                    entry: this.match.entry,
-                    gameModeId: this.match.gameMode.id,
-                    when: this.match.when,
+                    serverId: this.server.id,
+                    entry: this.entry,
+                    gameModeId: this.gameMode.id,
+                    // when: this.when,
                 }
 
                 this.$api.matches.create(data).then(
@@ -115,6 +126,13 @@
 
         &:last-child {
             padding-left: 1rem;
+        }
+
+        .btn-wrapper {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
         }
     }
 </style>

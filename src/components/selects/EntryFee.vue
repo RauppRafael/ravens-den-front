@@ -5,6 +5,7 @@
         :label="dataMultiple ? 'Entry Fees' : 'Entry Fee'"
         :small-chips="true"
         :deletable-chips="dataMultiple"
+        v-model="val"
         item-text="entry"
         item-value="id"
         return-object></v-select>

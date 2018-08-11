@@ -5,6 +5,7 @@
         :label="dataMultiple ? 'Regions' : 'Region'"
         :small-chips="true"
         :deletable-chips="dataMultiple"
+        v-model="val"
         max-height="350"
         item-text="region"
         item-value="id"

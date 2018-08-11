@@ -16,5 +16,12 @@
         overflow-x: hidden;
         height: $main-content-height;
         width: $container-width;
+
+        .create-match {
+            .v-chip {
+                background: $light-blue;
+                color: $white;
+            }
+        }
     }
 }

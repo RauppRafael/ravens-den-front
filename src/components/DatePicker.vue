@@ -2,36 +2,39 @@
     <v-menu ref="menu"
             :close-on-content-click="false"
             v-model="menu"
-            :return-value.sync="date"
+            :return-value.sync="val"
             lazy
             transition="scale-transition"
             offset-y
             full-width
             min-width="290px">
 
-        <v-select slot="activator"
-                  content-class="no-display"
-                  v-model="date"
-                  label="Date"></v-select>
+        <v-text-field slot="activator"
+                      v-model="val"
+                      label="Date"
+                      append-icon="event"
+                      readonly></v-text-field>
 
-        <v-date-picker v-model="date" @input="$refs.menu.save(date)"></v-date-picker>
-
+        <v-date-picker v-model="val"
+                       @input="(val) => $refs.menu.save(val)"></v-date-picker>
     </v-menu>
 </template>
 
 <script>
+    import vModel from '@mixins/v-model'
+
     export default {
         data() {
             return {
                 menu: false,
                 date: null,
             }
-        }
+        },
+
+        mixins: [vModel],
     }
 </script>
 
-<style>
-    .no-display {
-        display: none !important;
-    }
+<style scoped>
+
 </style>
