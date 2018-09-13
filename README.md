@@ -1,6 +1,7 @@
-# ftn
+# Raven's Den
 
-> A Vue.js project
+Raven's Den is a web app to help fortnite players finding and challenging other players and bet money on their wins.
+
 
 ## Build Setup
 
